@@ -730,48 +730,338 @@
             transform: scale(1.1);
         }
 
-        /* Enhanced Footer */
-        footer {
-            background: var(--primary-navy);
-            color: var(--white);
-            padding: 4rem 0 2rem;
-            position: relative;
-        }
+       footer {
+    background: linear-gradient(135deg, var(--primary-navy) 0%, var(--secondary-navy) 50%, var(--primary-navy) 100%);
+    color: var(--white);
+    padding: 4rem 0 2rem;
+    position: relative;
+    overflow: hidden;
+}
 
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2.5rem;
-            margin-bottom: 2.5rem;
-        }
+footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="rgba(201,169,110,0.1)"/><circle cx="75" cy="25" r="1" fill="rgba(201,169,110,0.08)"/><circle cx="50" cy="50" r="1" fill="rgba(201,169,110,0.06)"/><circle cx="25" cy="75" r="1" fill="rgba(201,169,110,0.08)"/><circle cx="75" cy="75" r="1" fill="rgba(201,169,110,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+    pointer-events: none;
+    animation: subtleMove 20s ease-in-out infinite;
+}
 
-        .footer-section h3 {
-            color: var(--accent-gold);
-            margin-bottom: 1.5rem;
-        }
+@keyframes subtleMove {
+    0%, 100% { transform: translateX(0) translateY(0); }
+    25% { transform: translateX(5px) translateY(-3px); }
+    50% { transform: translateX(-3px) translateY(5px); }
+    75% { transform: translateX(3px) translateY(-2px); }
+}
 
-        .social-links {
-            display: flex;
-            gap: 1rem;
-            margin-top: 1rem;
-        }
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2.5rem;
+    margin-bottom: 2.5rem;
+    position: relative;
+    z-index: 2;
+}
 
-        .social-links a {
-            width: 45px;
-            height: 45px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.1);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--white);
-            transition: all 0.3s ease;
-        }
+.footer-section {
+    padding: 1.5rem;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
 
-        .social-links a:hover {
-            background: var(--accent-gold);
-            transform: translateY(-3px);
-        }
+.footer-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(201, 169, 110, 0.1), transparent);
+    transition: left 0.6s ease;
+}
+
+.footer-section:hover::before {
+    left: 100%;
+}
+
+.footer-section:hover {
+    transform: translateY(-8px) scale(1.02);
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+    border-color: rgba(201, 169, 110, 0.3);
+}
+
+.footer-section:hover h3 {
+    color: var(--accent-gold-light);
+    transform: scale(1.05);
+}
+
+.footer-section h3 {
+    color: var(--accent-gold);
+    margin-bottom: 1.5rem;
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 1;
+}
+
+.footer-section p,
+.footer-section ul {
+    position: relative;
+    z-index: 1;
+    transition: all 0.3s ease;
+}
+
+.footer-section:hover p,
+.footer-section:hover ul {
+    color: rgba(255, 255, 255, 0.95);
+}
+
+.footer-section ul {
+    list-style: none;
+    line-height: 2;
+}
+
+.footer-section ul li {
+    transition: all 0.3s ease;
+    padding: 0.25rem 0;
+    border-radius: 4px;
+}
+
+.footer-section ul li:hover {
+    background: rgba(255, 255, 255, 0.1);
+    padding-left: 0.5rem;
+    transform: translateX(5px);
+}
+
+.footer-section ul li a {
+    color: var(--white);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+}
+
+.footer-section ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--accent-gold);
+    transition: width 0.3s ease;
+}
+
+.footer-section ul li a:hover::after {
+    width: 100%;
+}
+
+.footer-section ul li a:hover {
+    color: var(--accent-gold);
+    transform: translateX(3px);
+}
+
+.social-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+    position: relative;
+    z-index: 1;
+}
+
+.social-links a {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.social-links a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--gradient-primary);
+    border-radius: 50%;
+    transform: scale(0);
+    transition: transform 0.4s ease;
+}
+
+.social-links a:hover::before {
+    transform: scale(1);
+}
+
+.social-links a:hover {
+    transform: translateY(-6px) scale(1.1);
+    box-shadow: 0 8px 25px rgba(201, 169, 110, 0.4);
+    border-color: var(--accent-gold);
+}
+
+.social-links a i {
+    position: relative;
+    z-index: 1;
+    transition: all 0.3s ease;
+}
+
+.social-links a:hover i {
+    color: var(--white);
+    transform: scale(1.2);
+}
+
+/* Interactive Contact Info */
+.footer-section p {
+    transition: all 0.3s ease;
+    padding: 0.5rem 0;
+    border-radius: 6px;
+    cursor: pointer;
+    position: relative;
+}
+
+.footer-section p:hover {
+    background: rgba(255, 255, 255, 0.1);
+    padding-left: 1rem;
+    transform: translateX(3px);
+}
+
+.footer-section p i {
+    margin-right: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.footer-section p:hover i {
+    color: var(--accent-gold-light);
+    transform: scale(1.2);
+}
+
+/* Footer Bottom with Wave Effect */
+.footer-bottom {
+    text-align: center;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+    z-index: 2;
+    background: rgba(26, 35, 50, 0.3);
+    backdrop-filter: blur(10px);
+    margin: 2rem -2rem -2rem -2rem;
+    padding: 2rem;
+    transition: all 0.3s ease;
+}
+
+.footer-bottom:hover {
+    background: rgba(26, 35, 50, 0.5);
+}
+
+.footer-bottom p {
+    position: relative;
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+
+.footer-bottom:hover p {
+    transform: scale(1.02);
+    color: var(--accent-gold);
+}
+
+/* Floating Action Elements */
+.footer-floating-elements {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.floating-icon {
+    position: absolute;
+    opacity: 0.1;
+    animation: footerFloat 8s ease-in-out infinite;
+    font-size: 1.5rem;
+    color: var(--accent-gold);
+}
+
+.floating-icon:nth-child(1) {
+    left: 10%;
+    top: 20%;
+    animation-delay: 0s;
+}
+
+.floating-icon:nth-child(2) {
+    right: 15%;
+    top: 30%;
+    animation-delay: 2s;
+}
+
+.floating-icon:nth-child(3) {
+    left: 20%;
+    bottom: 25%;
+    animation-delay: 4s;
+}
+
+.floating-icon:nth-child(4) {
+    right: 25%;
+    bottom: 35%;
+    animation-delay: 6s;
+}
+
+@keyframes footerFloat {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0.1;
+    }
+    25% {
+        transform: translateY(-15px) rotate(90deg);
+        opacity: 0.2;
+    }
+    50% {
+        transform: translateY(-10px) rotate(180deg);
+        opacity: 0.15;
+    }
+    75% {
+        transform: translateY(-20px) rotate(270deg);
+        opacity: 0.25;
+    }
+}
+
+/* Mobile Responsive Enhancements */
+@media (max-width: 768px) {
+    .footer-section {
+        padding: 1rem;
+    }
+    
+    .footer-section:hover {
+        transform: translateY(-4px) scale(1.01);
+    }
+    
+    .social-links a {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .floating-icon {
+        font-size: 1.2rem;
+    }
+}
 
         /* Quick Booking Widget */
         .quick-booking {
@@ -1266,48 +1556,55 @@
 
     <!-- Footer -->
     <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>Finer Nails & Spa</h3>
-                    <p>Your complete beauty destination offering premium nail care, professional barbering, expert hair styling, and luxury spa treatments.</p>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-whatsapp"></i></a>
-                    </div>
-                </div>
-                <div class="footer-section">
-                    <h3>Services</h3>
-                    <ul style="list-style: none; line-height: 2;">
-                        <li><a href="#" style="color: var(--white); text-decoration: none;">Nail Care & Art</a></li>
-                        <li><a href="#" style="color: var(--white); text-decoration: none;">Barbering & Shaving</a></li>
-                        <li><a href="#" style="color: var(--white); text-decoration: none;">Hair Styling & Braiding</a></li>
-                        <li><a href="#" style="color: var(--white); text-decoration: none;">Spa Treatments</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h3>Quick Links</h3>
-                    <ul style="list-style: none; line-height: 2;">
-                        <li><a href="#home" style="color: var(--white); text-decoration: none;">Home</a></li>
-                        <li><a href="#services" style="color: var(--white); text-decoration: none;">Services</a></li>
-                        <li><a href="#gallery" style="color: var(--white); text-decoration: none;">Gallery</a></li>
-                        <li><a href="#contact" style="color: var(--white); text-decoration: none;">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h3>Contact Info</h3>
-                    <p><i class="fas fa-phone" style="color: var(--accent-gold);"></i> +254 700 123 456</p>
-                    <p><i class="fas fa-envelope" style="color: var(--accent-gold);"></i> info@finernailsspa.com</p>
-                    <p><i class="fas fa-map-marker-alt" style="color: var(--accent-gold);"></i> 123 Beauty Street, Kisii Town</p>
+    <div class="footer-floating-elements">
+        <div class="floating-icon"><i class="fas fa-gem"></i></div>
+        <div class="floating-icon"><i class="fas fa-spa"></i></div>
+        <div class="floating-icon"><i class="fas fa-cut"></i></div>
+        <div class="floating-icon"><i class="fas fa-star"></i></div>
+    </div>
+    
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Finer Nails & Spa</h3>
+                <p>Your complete beauty destination offering premium nail care, professional barbering, expert hair styling, and luxury spa treatments.</p>
+                <div class="social-links">
+                    <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
                 </div>
             </div>
-            <div style="text-align: center; padding-top: 2rem; border-top: 1px solid rgba(255, 255, 255, 0.1);">
-                <p>&copy; 2025 Finer Nails & Spa. All rights reserved. | Designed with ❤️ for beauty excellence</p>
+            <div class="footer-section">
+                <h3>Services</h3>
+                <ul>
+                    <li><a href="#">Nail Care & Art</a></li>
+                    <li><a href="#">Barbering & Shaving</a></li>
+                    <li><a href="#">Hair Styling & Braiding</a></li>
+                    <li><a href="#">Spa Treatments</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Info</h3>
+                <p onclick="callUs()"><i class="fas fa-phone"></i> +254 700 123 456</p>
+                <p onclick="emailUs()"><i class="fas fa-envelope"></i> info@finernailsspa.com</p>
+                <p onclick="visitUs()"><i class="fas fa-map-marker-alt"></i> 123 Beauty Street, Kisii Town</p>
             </div>
         </div>
-    </footer>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Finer Nails & Spa. All rights reserved. | Designed with ❤️ for beauty excellence</p>
+        </div>
+    </div>
+</footer>
 
     <!-- Quick Booking Widget -->
     <div class="quick-booking" onclick="bookAppointment()">
@@ -1500,6 +1797,84 @@
             }
         `;
         document.head.appendChild(style);
+
+
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+    // Add click functionality to contact info in footer
+    const footerSections = document.querySelectorAll('.footer-section');
+    
+    footerSections.forEach(section => {
+        section.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-8px) scale(1.02)';
+        });
+        
+        section.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0) scale(1)';
+        });
+    });
+    
+    // Add ripple effect to social links
+    const socialLinks = document.querySelectorAll('.social-links a');
+    socialLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // Create ripple effect
+            const ripple = document.createElement('span');
+            ripple.style.cssText = `
+                position: absolute;
+                border-radius: 50%;
+                background: rgba(255, 255, 255, 0.6);
+                transform: scale(0);
+                animation: ripple 0.6s linear;
+                left: 50%;
+                top: 50%;
+                width: 20px;
+                height: 20px;
+                margin-left: -10px;
+                margin-top: -10px;
+            `;
+            
+            this.appendChild(ripple);
+            
+            setTimeout(() => {
+                ripple.remove();
+            }, 600);
+        });
+    });
+    
+    // Add typing effect to footer bottom text
+    const footerBottomText = document.querySelector('.footer-bottom p');
+    const originalText = footerBottomText.textContent;
+    
+    footerBottomText.addEventListener('mouseenter', function() {
+        let index = 0;
+        this.textContent = '';
+        
+        const typeInterval = setInterval(() => {
+            this.textContent += originalText[index];
+            index++;
+            
+            if (index >= originalText.length) {
+                clearInterval(typeInterval);
+            }
+        }, 30);
+    });
+});
+
+// Add CSS for ripple animation
+const rippleStyle = document.createElement('style');
+rippleStyle.textContent = `
+    @keyframes ripple {
+        to {
+            transform: scale(4);
+            opacity: 0;
+        }
+    }
+`;
+document.head.appendChild(rippleStyle);
     </script>
 </body>
 </html>
