@@ -1,0 +1,1494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finer Nails and Spa - Your Complete Beauty Destination</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-navy: #1a2332;
+            --secondary-navy: #243447;
+            --accent-gold: #c9a96e;
+            --accent-gold-light: #d4b87c;
+            --accent-gold-dark: #b8955f;
+            --white: #ffffff;
+            --off-white: #fafbfc;
+            --light-gray: #f8f9fa;
+            --medium-gray: #6c757d;
+            --dark-gray: #343a40;
+            --glass-bg: rgba(255, 255, 255, 0.08);
+            --glass-border: rgba(255, 255, 255, 0.12);
+            --shadow-light: 0 4px 16px rgba(26, 35, 50, 0.08);
+            --shadow-medium: 0 8px 32px rgba(26, 35, 50, 0.12);
+            --shadow-heavy: 0 16px 48px rgba(26, 35, 50, 0.16);
+            --gradient-primary: linear-gradient(135deg, var(--accent-gold), var(--accent-gold-dark));
+            --gradient-hero: linear-gradient(135deg, var(--primary-navy) 0%, var(--secondary-navy) 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            line-height: 1.7;
+            color: var(--dark-gray);
+            overflow-x: hidden;
+            font-weight: 400;
+        }
+
+        /* Enhanced Typography with Variable Font Support */
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+            font-variation-settings: 'wght' 600;
+        }
+
+        h1 { font-size: clamp(2.5rem, 4vw, 3.5rem); }
+        h2 { font-size: clamp(2rem, 3vw, 2.75rem); }
+        h3 { font-size: clamp(1.25rem, 2vw, 1.5rem); }
+
+        p {
+            font-size: clamp(0.9rem, 2vw, 1rem);
+            line-height: 1.7;
+            color: var(--medium-gray);
+        }
+
+        /* Advanced Animated Background with Mesh Gradients */
+        .animated-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: var(--gradient-hero);
+            will-change: transform;
+        }
+
+        .animated-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(201, 169, 110, 0.12) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(201, 169, 110, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(255, 255, 255, 0.03) 0%, transparent 50%);
+            animation: meshFloat 20s ease-in-out infinite alternate;
+            filter: blur(0.5px);
+        }
+
+        @keyframes meshFloat {
+            0% { 
+                transform: translate(0, 0) rotate(0deg);
+                filter: blur(0.5px) hue-rotate(0deg);
+            }
+            100% { 
+                transform: translate(-20px, -20px) rotate(2deg);
+                filter: blur(1px) hue-rotate(5deg);
+            }
+        }
+
+        /* Enhanced Header with Glassmorphism */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(26, 35, 50, 0.75);
+            backdrop-filter: blur(20px) saturate(180%);
+            border-bottom: 1px solid var(--glass-border);
+            z-index: 1000;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            padding: 1.25rem 0;
+            contain: layout style paint;
+        }
+
+        .header-scrolled {
+            background: rgba(26, 35, 50, 0.95);
+            backdrop-filter: blur(24px) saturate(200%);
+            padding: 0.875rem 0;
+            transform: translateY(-1px);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.75rem;
+            font-weight: 600;
+            color: var(--accent-gold);
+            text-decoration: none;
+            letter-spacing: -0.025em;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .logo::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient-primary);
+            transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .logo:hover::after {
+            width: 100%;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+            align-items: center;
+        }
+
+        .nav-menu a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            padding: 0.5rem 0;
+            letter-spacing: 0.025em;
+        }
+
+        /* Advanced Hover Effect with Multiple Pseudo-elements */
+        .nav-menu a::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: -10px;
+            width: 4px;
+            height: 0;
+            background: var(--gradient-primary);
+            border-radius: 2px;
+            transition: height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            transform: translateY(-50%);
+        }
+
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient-primary);
+            transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .nav-menu a:hover::before {
+            height: 20px;
+        }
+
+        .nav-menu a:hover::after {
+            width: 100%;
+        }
+
+        .nav-menu a:hover {
+            color: var(--accent-gold);
+            transform: translateX(8px);
+        }
+
+        /* Enhanced Button with Multiple States */
+        .book-btn {
+            background: var(--gradient-primary);
+            color: var(--white) !important;
+            padding: 0.875rem 1.75rem;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            box-shadow: var(--shadow-light);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border: none;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .book-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.6s;
+        }
+
+        .book-btn:hover::before {
+            left: 100%;
+        }
+
+        .book-btn:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: var(--shadow-heavy);
+            background: linear-gradient(135deg, var(--accent-gold-light), var(--accent-gold));
+        }
+
+        .book-btn:active {
+            transform: translateY(-1px) scale(0.98);
+        }
+
+        .mobile-menu-toggle {
+            display: none;
+            color: var(--white);
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-menu-toggle:hover {
+            color: var(--accent-gold);
+            transform: scale(1.1);
+        }
+
+        /* Enhanced Hero Section with 3D Effects */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            padding: 2rem 0;
+            perspective: 1000px;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            padding: 0 2rem;
+            z-index: 2;
+            animation: heroEntrance 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+            transform-style: preserve-3d;
+        }
+
+        @keyframes heroEntrance {
+            from {
+                opacity: 0;
+                transform: translateY(60px) rotateX(10deg);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) rotateX(0deg);
+            }
+        }
+
+        .hero h1 {
+            color: var(--white);
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            text-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            background: linear-gradient(135deg, var(--white), rgba(255, 255, 255, 0.8));
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-size: 200% 200%;
+            animation: textShimmer 3s ease-in-out infinite;
+        }
+
+        @keyframes textShimmer {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.1rem, 2.5vw, 1.25rem);
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 2.5rem;
+            font-weight: 400;
+            line-height: 1.6;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        /* Enhanced Buttons with Advanced Effects */
+        .btn-primary, .btn-secondary {
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            letter-spacing: 0.025em;
+            position: relative;
+            overflow: hidden;
+            will-change: transform;
+        }
+
+        .btn-primary {
+            background: var(--gradient-primary);
+            color: var(--white);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.8s;
+        }
+
+        .btn-primary:hover::before {
+            left: 100%;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-4px) scale(1.03);
+            box-shadow: var(--shadow-heavy);
+            background: linear-gradient(135deg, var(--accent-gold-light), var(--accent-gold));
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--white);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(12px);
+        }
+
+        .btn-secondary::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            padding: 1px;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.1));
+            border-radius: inherit;
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask-composite: xor;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .btn-secondary:hover::before {
+            opacity: 1;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-3px) scale(1.02);
+            border-color: rgba(255, 255, 255, 0.4);
+        }
+
+        /* Enhanced Services Section with Container Queries */
+        .services {
+            padding: 6rem 0;
+            background: var(--white);
+            position: relative;
+            container-type: inline-size;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 4rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .section-title h2 {
+            color: var(--primary-navy);
+            margin-bottom: 1rem;
+            position: relative;
+        }
+
+        /* Enhanced Decorative Element */
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: var(--gradient-primary);
+            border-radius: 2px;
+            animation: pulseGlow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes pulseGlow {
+            from {
+                box-shadow: 0 0 0 rgba(201, 169, 110, 0.7);
+            }
+            to {
+                box-shadow: 0 0 20px rgba(201, 169, 110, 0.4);
+            }
+        }
+
+        .section-title p {
+            font-size: clamp(1rem, 2.5vw, 1.125rem);
+            margin-top: 1.5rem;
+        }
+
+        /* CSS Grid with Advanced Responsive Design */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+            gap: 2.5rem;
+            padding: 2rem 0;
+        }
+
+        /* Enhanced Service Cards with Multiple Visual Effects */
+        .service-card {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 2.5rem;
+            text-align: center;
+            box-shadow: var(--shadow-light);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            border: 1px solid rgba(26, 35, 50, 0.08);
+            overflow: hidden;
+            will-change: transform;
+        }
+
+        /* Multiple Layered Shadows for Depth */
+        .service-card:hover {
+            transform: translateY(-12px) rotateY(2deg);
+            box-shadow: 
+                var(--shadow-heavy),
+                0 0 40px rgba(201, 169, 110, 0.15),
+                inset 0 1px 0 rgba(255, 255, 255, 0.6);
+        }
+
+        /* Animated Background Pattern */
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(201, 169, 110, 0.03) 0%, transparent 70%);
+            transition: all 0.6s ease;
+            z-index: 0;
+        }
+
+        .service-card:hover::before {
+            transform: rotate(45deg) scale(1.2);
+            background: radial-gradient(circle, rgba(201, 169, 110, 0.08) 0%, transparent 70%);
+        }
+
+        .service-card > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Enhanced Icon with Transform Effects */
+        .service-icon {
+            font-size: 2.5rem;
+            color: var(--accent-gold);
+            margin-bottom: 1.5rem;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            filter: drop-shadow(0 4px 8px rgba(201, 169, 110, 0.3));
+        }
+
+        .service-card:hover .service-icon {
+            transform: scale(1.15) rotateY(15deg);
+            color: var(--accent-gold-dark);
+            filter: drop-shadow(0 8px 16px rgba(201, 169, 110, 0.4));
+        }
+
+        .service-card h3 {
+            color: var(--primary-navy);
+            margin-bottom: 1rem;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .service-card:hover h3 {
+            color: var(--accent-gold-dark);
+        }
+
+        .service-card p {
+            margin-bottom: 2rem;
+            line-height: 1.6;
+            transition: color 0.3s ease;
+        }
+
+        .service-card:hover p {
+            color: var(--dark-gray);
+        }
+
+        /* Enhanced Service Button */
+        .service-btn {
+            background: var(--primary-navy);
+            color: var(--white);
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            text-decoration: none;
+            display: inline-block;
+            font-weight: 500;
+            font-size: 0.9rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient-primary);
+            transition: left 0.4s ease;
+            z-index: 0;
+        }
+
+        .service-btn:hover::before {
+            left: 0;
+        }
+
+        .service-btn:hover {
+            transform: translateY(-2px) scale(1.05);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .service-btn span {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Enhanced Why Choose Us Section */
+        .why-choose-us {
+            padding: 6rem 0;
+            background: 
+                linear-gradient(135deg, var(--light-gray) 0%, rgba(248, 249, 250, 0.8) 100%),
+                radial-gradient(circle at 30% 70%, rgba(201, 169, 110, 0.05) 0%, transparent 50%);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
+            gap: 2.5rem;
+            margin-top: 4rem;
+        }
+
+        /* Enhanced Feature Items with Clip-path */
+        .feature-item {
+            text-align: center;
+            padding: 2.5rem 2rem;
+            background: var(--white);
+            border-radius: 12px;
+            box-shadow: var(--shadow-light);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid rgba(26, 35, 50, 0.06);
+            position: relative;
+            overflow: hidden;
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 85% 100%, 0 100%);
+        }
+
+        .feature-item:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: var(--shadow-heavy);
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+        }
+
+        .feature-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(201, 169, 110, 0.1), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .feature-item:hover::before {
+            left: 100%;
+        }
+
+        .feature-icon {
+            font-size: 2.25rem;
+            color: var(--accent-gold);
+            margin-bottom: 1.5rem;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            filter: drop-shadow(0 4px 8px rgba(201, 169, 110, 0.2));
+        }
+
+        .feature-item:hover .feature-icon {
+            transform: scale(1.2) rotateZ(5deg);
+            filter: drop-shadow(0 8px 16px rgba(201, 169, 110, 0.3));
+        }
+
+        .feature-item h3 {
+            color: var(--primary-navy);
+            margin-bottom: 1rem;
+            transition: color 0.3s ease;
+        }
+
+        .feature-item:hover h3 {
+            color: var(--accent-gold-dark);
+        }
+
+        /* Enhanced Testimonials with Glassmorphism */
+        .testimonials {
+            padding: 6rem 0;
+            background: var(--white);
+            position: relative;
+        }
+
+        .testimonials::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 20%, rgba(201, 169, 110, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(26, 35, 50, 0.03) 0%, transparent 50%);
+            z-index: 0;
+        }
+
+        .testimonials > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .testimonial-card {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(12px);
+            padding: 3rem 2.5rem;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 
+                var(--shadow-light),
+                inset 0 1px 0 rgba(255, 255, 255, 0.8);
+            margin: 2rem auto;
+            max-width: 700px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.4s ease;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-4px) scale(1.01);
+            box-shadow: 
+                var(--shadow-heavy),
+                inset 0 1px 0 rgba(255, 255, 255, 0.9);
+        }
+
+        .testimonial-text {
+            font-size: clamp(1rem, 2.5vw, 1.125rem);
+            color: var(--dark-gray);
+            margin-bottom: 2rem;
+            font-style: italic;
+            line-height: 1.7;
+            position: relative;
+        }
+
+        .testimonial-text::before,
+        .testimonial-text::after {
+            content: '"';
+            font-size: 2rem;
+            color: var(--accent-gold);
+            font-family: serif;
+            position: absolute;
+            opacity: 0.7;
+        }
+
+        .testimonial-text::before {
+            top: -10px;
+            left: -10px;
+        }
+
+        .testimonial-text::after {
+            bottom: -30px;
+            right: -10px;
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--primary-navy);
+            font-size: 1rem;
+        }
+
+        .stars {
+            color: var(--accent-gold);
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            letter-spacing: 0.25rem;
+            animation: starGlow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes starGlow {
+            from {
+                filter: drop-shadow(0 0 2px rgba(201, 169, 110, 0.5));
+            }
+            to {
+                filter: drop-shadow(0 0 8px rgba(201, 169, 110, 0.7));
+            }
+        }
+
+        /* Enhanced Quick Booking Widget with Pulse Effect */
+        .quick-booking {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: var(--gradient-primary);
+            color: var(--white);
+            padding: 1rem;
+            border-radius: 50%;
+            box-shadow: var(--shadow-medium);
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 1000;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: pulseFloat 3s ease-in-out infinite;
+        }
+
+        @keyframes pulseFloat {
+            0%, 100% {
+                transform: translateY(0) scale(1);
+                box-shadow: var(--shadow-medium);
+            }
+            50% {
+                transform: translateY(-4px) scale(1.05);
+                box-shadow: 
+                    var(--shadow-heavy),
+                    0 0 20px rgba(201, 169, 110, 0.4);
+            }
+        }
+
+        .quick-booking:hover {
+            transform: scale(1.15) !important;
+            animation-play-state: paused;
+        }
+
+        .quick-booking::before {
+            content: '';
+            position: absolute;
+            inset: -4px;
+            border-radius: 50%;
+            background: var(--gradient-primary);
+            opacity: 0.3;
+            animation: ripple 2s infinite;
+        }
+
+        @keyframes ripple {
+            0% {
+                transform: scale(0.8);
+                opacity: 0.8;
+            }
+            100% {
+                transform: scale(1.2);
+                opacity: 0;
+            }
+        }
+
+        /* Enhanced Footer */
+        footer {
+            background: var(--primary-navy);
+            color: var(--white);
+            padding: 4rem 0 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 30% 30%, rgba(201, 169, 110, 0.1) 0%, transparent 50%),
+                linear-gradient(135deg, transparent 0%, rgba(255, 255, 255, 0.02) 100%);
+            z-index: 0;
+        }
+
+        footer > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr));
+            gap: 2.5rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .footer-section h3 {
+            color: var(--accent-gold);
+            margin-bottom: 1.5rem;
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            margin-bottom: 0.75rem;
+            display: block;
+            transition: all 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: var(--accent-gold);
+            transform: translateX(5px);
+        }
+
+        .footer-section i {
+            margin-right: 0.75rem;
+            color: var(--accent-gold);
+            width: 16px;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .social-links a {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 1.5rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+        }
+
+        .social-links a:hover {
+            color: var(--accent-gold);
+            background: rgba(201, 169, 110, 0.2);
+            transform: translateY(-3px) scale(1.1);
+        }
+
+        /* Enhanced Responsive Design */
+        @media (max-width: 768px) {
+            .nav-menu {
+                position: fixed;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: rgba(26, 35, 50, 0.98);
+                backdrop-filter: blur(20px);
+                flex-direction: column;
+                gap: 1.5rem;
+                padding: 2rem;
+                transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+                opacity: 0;
+                visibility: hidden;
+                transform: translateY(-20px);
+            }
+
+            .nav-menu.active {
+                top: 100%;
+                opacity: 1;
+                visibility: visible;
+                transform: translateY(0);
+            }
+
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn-primary,
+            .btn-secondary {
+                width: 100%;
+                max-width: 280px;
+                justify-content: center;
+            }
+
+            .quick-booking {
+                bottom: 1rem;
+                right: 1rem;
+                width: 50px;
+                height: 50px;
+            }
+
+            .hero {
+                padding-top: 6rem;
+            }
+
+            .services-grid,
+            .features-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .service-card,
+            .feature-item {
+                padding: 2rem 1.5rem;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .nav-container {
+                padding: 0 1rem;
+            }
+
+            .container {
+                padding: 0 1rem;
+            }
+
+            .hero-content {
+                padding: 0 1rem;
+            }
+
+            .service-card,
+            .feature-item,
+            .testimonial-card {
+                padding: 1.5rem;
+            }
+        }
+
+        /* Performance Optimizations */
+        .service-card,
+        .feature-item,
+        .testimonial-card {
+            contain: layout style paint;
+        }
+
+        /* Accessibility Improvements */
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        /* Focus Management */
+        .btn-primary:focus,
+        .btn-secondary:focus,
+        .book-btn:focus,
+        .service-btn:focus {
+            outline: 3px solid var(--accent-gold);
+            outline-offset: 2px;
+        }
+
+        /* High Contrast Support */
+        @media (prefers-contrast: high) {
+            .service-card,
+            .feature-item {
+                border: 2px solid var(--dark-gray);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="animated-bg"></div>
+    
+    <!-- Header -->
+    <header id="header">
+        <nav class="nav-container">
+            <a href="#" class="logo">Finer Nails & Spa</a>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#book" class="book-btn">Book Now</a></li>
+            </ul>
+            <div class="mobile-menu-toggle" id="mobile-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Your Complete Beauty Destination</h1>
+            <p class="hero-subtitle">Experience luxury beauty services in our premium spa environment. From stunning nails to expert grooming and relaxing spa treatments.</p>
+            <div class="hero-buttons">
+                <a href="#book" class="btn-primary">
+                    <i class="fas fa-calendar-alt"></i>
+                    Book Appointment
+                </a>
+                <a href="#services" class="btn-secondary">
+                    <i class="fas fa-spa"></i>
+                    View Services
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Premium Services</h2>
+                <p>Discover our comprehensive range of beauty and wellness services, designed to make you look and feel your absolute best.</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-hand-sparkles"></i>
+                    </div>
+                    <h3>Nail Services</h3>
+                    <p>Professional manicures, pedicures, nail art, gel polish, and nail extensions. Transform your nails with our expert techniques and premium products.</p>
+                    <a href="#book" class="service-btn">
+                        <span>Book Nail Service</span>
+                    </a>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-cut"></i>
+                    </div>
+                    <h3>Barber Services</h3>
+                    <p>Expert men's grooming including precision haircuts, classic shaves, beard trimming, and styling. Experience traditional barbering with modern techniques.</p>
+                    <a href="#book" class="service-btn">
+                        <span>Book Barber Service</span>
+                    </a>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-female"></i>
+                    </div>
+                    <h3>Hair Salon</h3>
+                    <p>Professional hair styling, braiding, weaving, treatments, and cuts for women. From elegant updos to stunning protective styles.</p>
+                    <a href="#book" class="service-btn">
+                        <span>Book Hair Service</span>
+                    </a>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-spa"></i>
+                    </div>
+                    <h3>Spa Treatments</h3>
+                    <p>Relaxing massages, facials, body treatments, and wellness therapies. Rejuvenate your body and mind in our tranquil spa environment.</p>
+                    <a href="#book" class="service-btn">
+                        <span>Book Spa Treatment</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section class="why-choose-us" id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>Why Choose Finer Nails & Spa</h2>
+                <p>We're committed to providing exceptional beauty services with the highest standards of quality and hygiene.</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <h3>Expert Professionals</h3>
+                    <p>Our skilled team brings years of experience and continuous training to deliver exceptional results every time.</p>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Highest Hygiene Standards</h3>
+                    <p>We maintain strict sanitation protocols and use only sterilized tools to ensure your safety and peace of mind.</p>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-gem"></i>
+                    </div>
+                    <h3>Premium Products</h3>
+                    <p>We use only the finest, professional-grade products and brands to ensure lasting results and healthy treatments.</p>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>Flexible Scheduling</h3>
+                    <p>Convenient appointment times that work with your busy schedule, including evenings and weekends.</p>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3>Personalized Care</h3>
+                    <p>Every service is tailored to your unique needs and preferences for a truly personalized experience.</p>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <h3>Relaxing Environment</h3>
+                    <p>Our serene, luxury atmosphere provides the perfect escape from daily stress for true relaxation.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>What Our Clients Say</h2>
+                <p>Don't just take our word for it - hear from our satisfied clients about their experiences.</p>
+            </div>
+            
+            <div class="testimonial-card">
+                <div class="stars">★★★★★</div>
+                <p class="testimonial-text">Absolutely love this place! The nail technicians are incredibly skilled and the atmosphere is so relaxing. My gel manicure lasted for weeks and looked perfect the entire time.</p>
+                <p class="testimonial-author">- Sarah M.</p>
+            </div>
+            
+            <div class="testimonial-card">
+                <div class="stars">★★★★★</div>
+                <p class="testimonial-text">Best barber experience I've had in years! The attention to detail is amazing and the hot towel shave was incredibly relaxing. Definitely my new go-to spot.</p>
+                <p class="testimonial-author">- Michael R.</p>
+            </div>
+            
+            <div class="testimonial-card">
+                <div class="stars">★★★★★</div>
+                <p class="testimonial-text">The hair stylists here are true artists! My braids came out absolutely beautiful and lasted for months. The service was professional and the prices are very reasonable.</p>
+                <p class="testimonial-author">- Amara K.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact" style="padding: 6rem 0; background: var(--light-gray);">
+        <div class="container">
+            <div class="section-title">
+                <h2>Visit Us Today</h2>
+                <p>Ready for your beauty transformation? Contact us to schedule your appointment.</p>
+            </div>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr)); gap: 3rem; margin-top: 3rem;">
+                <div style="text-align: center; padding: 2rem; background: var(--white); border-radius: 12px; box-shadow: var(--shadow-light);">
+                    <div style="font-size: 2rem; color: var(--accent-gold); margin-bottom: 1rem;">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h3 style="color: var(--primary-navy); margin-bottom: 1rem;">Location</h3>
+                    <p>123 Beauty Boulevard<br>Kisii Town, Kenya<br>40200</p>
+                </div>
+                
+                <div style="text-align: center; padding: 2rem; background: var(--white); border-radius: 12px; box-shadow: var(--shadow-light);">
+                    <div style="font-size: 2rem; color: var(--accent-gold); margin-bottom: 1rem;">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <h3 style="color: var(--primary-navy); margin-bottom: 1rem;">Call Us</h3>
+                    <p>+254 700 123 456<br>+254 733 987 654</p>
+                </div>
+                
+                <div style="text-align: center; padding: 2rem; background: var(--white); border-radius: 12px; box-shadow: var(--shadow-light);">
+                    <div style="font-size: 2rem; color: var(--accent-gold); margin-bottom: 1rem;">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3 style="color: var(--primary-navy); margin-bottom: 1rem;">Hours</h3>
+                    <p>Mon-Sat: 8:00 AM - 8:00 PM<br>Sunday: 10:00 AM - 6:00 PM</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Finer Nails & Spa</h3>
+                    <p>Your premier destination for luxury beauty services in Kisii. We're committed to helping you look and feel your absolute best.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <a href="#home">Home</a>
+                    <a href="#services">Services</a>
+                    <a href="#about">About Us</a>
+                    <a href="#contact">Contact</a>
+                    <a href="#book">Book Appointment</a>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Services</h3>
+                    <a href="#services">Nail Services</a>
+                    <a href="#services">Barber Services</a>
+                    <a href="#services">Hair Salon</a>
+                    <a href="#services">Spa Treatments</a>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <p><i class="fas fa-map-marker-alt"></i>123 Beauty Boulevard, Kisii</p>
+                    <p><i class="fas fa-phone"></i>+254 700 123 456</p>
+                    <p><i class="fas fa-envelope"></i>info@finernailsspa.com</p>
+                    <p><i class="fas fa-clock"></i>Mon-Sat: 8AM-8PM</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Finer Nails & Spa. All rights reserved. | Designed with ❤️ for beauty lovers</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Quick Booking Widget -->
+    <div class="quick-booking" id="quick-book" title="Quick Book Appointment">
+        <i class="fas fa-calendar-plus"></i>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile Menu Toggle
+        const mobileToggle = document.getElementById('mobile-toggle');
+        const navMenu = document.getElementById('nav-menu');
+
+        mobileToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            const icon = mobileToggle.querySelector('i');
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-times');
+        });
+
+        // Header Scrolling Effect
+        const header = document.getElementById('header');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                header.classList.add('header-scrolled');
+            } else {
+                header.classList.remove('header-scrolled');
+            }
+        });
+
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const offsetTop = target.offsetTop - 80;
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Quick Booking Widget
+        const quickBookBtn = document.getElementById('quick-book');
+        quickBookBtn.addEventListener('click', () => {
+            // Simulate booking action
+            alert('Booking feature coming soon! Please call +254 700 123 456 to book your appointment.');
+        });
+
+        // Service Card Animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe service cards and feature items
+        document.querySelectorAll('.service-card, .feature-item, .testimonial-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(card);
+        });
+
+        // Parallax Effect for Hero Section
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const rate = scrolled * -0.3;
+            const hero = document.querySelector('.hero');
+            if (hero) {
+                hero.style.transform = `translateY(${rate}px)`;
+            }
+        });
+
+        // Form Validation (for future booking form)
+        function validateBookingForm(formData) {
+            const errors = [];
+            
+            if (!formData.name || formData.name.trim().length < 2) {
+                errors.push('Please enter a valid name');
+            }
+            
+            if (!formData.phone || !/^\+?[\d\s-()]+$/.test(formData.phone)) {
+                errors.push('Please enter a valid phone number');
+            }
+            
+            if (!formData.service) {
+                errors.push('Please select a service');
+            }
+            
+            return errors;
+        }
+
+        // Performance Optimization: Debounced Scroll Handler
+        function debounce(func, wait) {
+            let timeout;
+            return function executedFunction(...args) {
+                const later = () => {
+                    clearTimeout(timeout);
+                    func(...args);
+                };
+                clearTimeout(timeout);
+                timeout = setTimeout(later, wait);
+            };
+        }
+
+        // Apply debounced scroll handler
+        const debouncedScrollHandler = debounce(() => {
+            // Scroll-based animations can be added here
+        }, 10);
+
+        window.addEventListener('scroll', debouncedScrollHandler);
+
+        // Accessibility: Keyboard Navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && navMenu.classList.contains('active')) {
+                navMenu.classList.remove('active');
+                mobileToggle.querySelector('i').classList.replace('fa-times', 'fa-bars');
+            }
+        });
+
+        // Dynamic Year for Copyright
+        document.addEventListener('DOMContentLoaded', () => {
+            const currentYear = new Date().getFullYear();
+            const copyrightText = document.querySelector('.footer-bottom p');
+            if (copyrightText) {
+                copyrightText.innerHTML = copyrightText.innerHTML.replace('2025', currentYear);
+            }
+        });
+
+        // Service Button Click Handlers
+        document.querySelectorAll('.service-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                const serviceName = btn.closest('.service-card').querySelector('h3').textContent;
+                alert(`Ready to book ${serviceName}? Please call +254 700 123 456 or visit us at 123 Beauty Boulevard, Kisii!`);
+            });
+        });
+
+        // Hero Button Animations
+        document.querySelectorAll('.btn-primary, .btn-secondary').forEach(btn => {
+            btn.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-4px) scale(1.03)';
+            });
+            
+            btn.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // Loading Animation
+        window.addEventListener('load', () => {
+            document.body.classList.add('loaded');
+            
+            // Stagger animation for service cards
+            const cards = document.querySelectorAll('.service-card');
+            cards.forEach((card, index) => {
+                setTimeout(() => {
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, index * 150);
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,1339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finer Nails, Spa & Barber - Transform Your Look, Elevate Your Confidence</title>
+    
+    <!-- External Resources -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <style>
+        /* ===== CSS CUSTOM PROPERTIES ===== */
+        :root {
+            /* Colors */
+            --primary-dark: #1a4d8c;
+            --primary-medium: #3a6db0;
+            --accent-gold: #c9a84a;
+            --accent-gold-light: #d4b55a;
+            --white: #ffffff;
+            --light-gray: #f8f9fa;
+            --medium-gray: #6c757d;
+            --dark-gray: #343a40;
+            --black: #000000;
+            
+            /* Gradients */
+            --gradient-primary: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-medium) 100%);
+            --gradient-gold: linear-gradient(135deg, var(--accent-gold) 0%, var(--accent-gold-light) 100%);
+            --gradient-overlay: linear-gradient(45deg, rgba(26, 77, 140, 0.9) 0%, rgba(58, 109, 176, 0.8) 100%);
+            
+            /* Typography */
+            --font-heading: 'Playfair Display', serif;
+            --font-body: 'Poppins', sans-serif;
+            --font-size-xl: 3.5rem;
+            --font-size-lg: 2.5rem;
+            --font-size-md: 1.5rem;
+            --font-size-sm: 1rem;
+            --font-size-xs: 0.875rem;
+            
+            /* Spacing */
+            --space-xs: 0.5rem;
+            --space-sm: 1rem;
+            --space-md: 2rem;
+            --space-lg: 3rem;
+            --space-xl: 5rem;
+            
+            /* Shadows */
+            --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
+            --shadow-md: 0 4px 15px rgba(0, 0, 0, 0.15);
+            --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.2);
+            --shadow-xl: 0 20px 50px rgba(0, 0, 0, 0.25);
+            
+            /* Borders */
+            --border-radius: 8px;
+            --border-radius-lg: 15px;
+            --border-radius-xl: 25px;
+            
+            /* Transitions */
+            --transition-fast: 0.2s ease-in-out;
+            --transition-normal: 0.3s ease-in-out;
+            --transition-slow: 0.5s ease-in-out;
+        }
+        
+        /* ===== GLOBAL STYLES ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: var(--font-body);
+            line-height: 1.6;
+            color: var(--dark-gray);
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--space-sm);
+        }
+        
+        .section {
+            padding: var(--space-xl) 0;
+        }
+        
+        .section-title {
+            font-family: var(--font-heading);
+            font-size: var(--font-size-lg);
+            text-align: center;
+            margin-bottom: var(--space-lg);
+            color: var(--primary-dark);
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: var(--space-sm) var(--space-md);
+            border: none;
+            border-radius: var(--border-radius);
+            font-family: var(--font-body);
+            font-weight: 600;
+            text-decoration: none;
+            text-align: center;
+            cursor: pointer;
+            transition: all var(--transition-normal);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left var(--transition-slow);
+        }
+        
+        .btn:hover::before {
+            left: 100%;
+        }
+        
+        .btn-primary {
+            background: var(--gradient-gold);
+            color: var(--white);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid var(--white);
+        }
+        
+        .btn-secondary:hover {
+            background: var(--white);
+            color: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+        
+        /* ===== NAVIGATION ===== */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            transition: all var(--transition-normal);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+        
+        .navbar.scrolled {
+            background: rgba(26, 77, 140, 0.95);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .navbar-top {
+            background: var(--primary-dark);
+            color: var(--white);
+            padding: var(--space-xs) 0;
+            font-size: var(--font-size-xs);
+        }
+        
+        .navbar-top .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .navbar-top-left {
+            display: flex;
+            gap: var(--space-md);
+            align-items: center;
+        }
+        
+        .navbar-top-right {
+            display: flex;
+            gap: var(--space-sm);
+            align-items: center;
+        }
+        
+        .social-links a {
+            color: var(--white);
+            transition: color var(--transition-fast);
+        }
+        
+        .social-links a:hover {
+            color: var(--accent-gold);
+        }
+        
+        .navbar-main {
+            padding: var(--space-sm) 0;
+        }
+        
+        .navbar-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-family: var(--font-heading);
+            font-size: var(--font-size-md);
+            font-weight: 700;
+            color: var(--white);
+            text-decoration: none;
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: var(--space-md);
+            align-items: center;
+        }
+        
+        .nav-link {
+            color: var(--white);
+            text-decoration: none;
+            position: relative;
+            transition: color var(--transition-fast);
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent-gold);
+            transition: width var(--transition-normal);
+        }
+        
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
+        }
+        
+        .nav-actions {
+            display: flex;
+            gap: var(--space-sm);
+            align-items: center;
+        }
+        
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* ===== HERO SECTION ===== */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(26, 77, 140, 0.8), rgba(58, 109, 176, 0.7)), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%23f8f9fa" width="1200" height="600"/><circle fill="%23e9ecef" cx="200" cy="150" r="80"/><circle fill="%23dee2e6" cx="800" cy="300" r="120"/><circle fill="%23ced4da" cx="1000" cy="100" r="60"/></svg>');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            position: relative;
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+        }
+        
+        .hero-content {
+            text-align: center;
+            color: var(--white);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero-title {
+            font-family: var(--font-heading);
+            font-size: var(--font-size-xl);
+            font-weight: 700;
+            margin-bottom: var(--space-sm);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .hero-subtitle {
+            font-size: var(--font-size-md);
+            margin-bottom: var(--space-lg);
+            font-weight: 300;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        }
+        
+        .hero-actions {
+            display: flex;
+            gap: var(--space-sm);
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        /* ===== SERVICE TRIO ===== */
+        .services-trio {
+            margin-top: -100px;
+            position: relative;
+            z-index: 10;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: var(--space-md);
+        }
+        
+        .service-card {
+            background: var(--white);
+            border-radius: var(--border-radius-lg);
+            padding: var(--space-lg);
+            box-shadow: var(--shadow-lg);
+            text-align: center;
+            transition: all var(--transition-normal);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient-gold);
+            transform: scaleX(0);
+            transition: transform var(--transition-normal);
+        }
+        
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-xl);
+        }
+        
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto var(--space-md);
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: var(--white);
+            transition: all var(--transition-normal);
+        }
+        
+        .service-card:hover .service-icon {
+            transform: rotateY(360deg);
+        }
+        
+        .service-title {
+            font-family: var(--font-heading);
+            font-size: var(--font-size-md);
+            color: var(--primary-dark);
+            margin-bottom: var(--space-sm);
+        }
+        
+        .service-description {
+            color: var(--medium-gray);
+            margin-bottom: var(--space-md);
+            line-height: 1.8;
+        }
+        
+        .service-actions {
+            display: flex;
+            gap: var(--space-xs);
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn-outline {
+            background: transparent;
+            color: var(--primary-dark);
+            border: 2px solid var(--primary-dark);
+            font-size: var(--font-size-xs);
+            padding: var(--space-xs) var(--space-sm);
+        }
+        
+        .btn-outline:hover {
+            background: var(--primary-dark);
+            color: var(--white);
+        }
+        
+        /* ===== SOCIAL PROOF ===== */
+        .social-proof {
+            background: var(--light-gray);
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--space-lg);
+            margin-bottom: var(--space-lg);
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-family: var(--font-heading);
+            font-size: var(--font-size-lg);
+            font-weight: 700;
+            color: var(--accent-gold);
+            display: block;
+        }
+        
+        .stat-label {
+            color: var(--medium-gray);
+            font-size: var(--font-size-sm);
+        }
+        
+        .testimonials {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--space-md);
+        }
+        
+        .testimonial-card {
+            background: var(--white);
+            padding: var(--space-md);
+            border-radius: var(--border-radius-lg);
+            box-shadow: var(--shadow-md);
+            transition: all var(--transition-normal);
+            position: relative;
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .testimonial-quote {
+            font-style: italic;
+            margin-bottom: var(--space-sm);
+            position: relative;
+        }
+        
+        .testimonial-quote::before {
+            content: '"';
+            font-size: 3rem;
+            color: var(--accent-gold);
+            position: absolute;
+            left: -15px;
+            top: -10px;
+            font-family: var(--font-heading);
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+        }
+        
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--gradient-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-weight: 600;
+        }
+        
+        .author-info h4 {
+            color: var(--primary-dark);
+            font-size: var(--font-size-sm);
+            margin-bottom: 2px;
+        }
+        
+        .stars {
+            color: var(--accent-gold);
+            font-size: var(--font-size-xs);
+        }
+        
+        /* ===== GALLERY SHOWCASE ===== */
+        .gallery-preview {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--space-sm);
+            margin-bottom: var(--space-lg);
+        }
+        
+        .gallery-item {
+            aspect-ratio: 1;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            position: relative;
+            background: linear-gradient(45deg, var(--primary-dark), var(--primary-medium));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: var(--font-size-lg);
+            transition: all var(--transition-normal);
+            cursor: pointer;
+        }
+        
+        .gallery-item:hover {
+            transform: scale(1.05);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .gallery-item::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.3);
+            opacity: 0;
+            transition: opacity var(--transition-fast);
+        }
+        
+        .gallery-item:hover::after {
+            opacity: 1;
+        }
+        
+        /* ===== CURRENT OFFERS ===== */
+        .offers {
+            background: var(--gradient-primary);
+            color: var(--white);
+            text-align: center;
+        }
+        
+        .offers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--space-md);
+        }
+        
+        .offer-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: var(--space-md);
+            border-radius: var(--border-radius-lg);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all var(--transition-normal);
+        }
+        
+        .offer-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.15);
+        }
+        
+        .offer-title {
+            font-family: var(--font-heading);
+            font-size: var(--font-size-md);
+            margin-bottom: var(--space-sm);
+        }
+        
+        .offer-price {
+            font-size: var(--font-size-lg);
+            font-weight: 700;
+            color: var(--accent-gold);
+            margin-bottom: var(--space-sm);
+        }
+        
+        /* ===== LOCATION ===== */
+        .location {
+            background: var(--light-gray);
+        }
+        
+        .location-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-lg);
+            align-items: center;
+        }
+        
+        .location-info h3 {
+            font-family: var(--font-heading);
+            color: var(--primary-dark);
+            margin-bottom: var(--space-sm);
+        }
+        
+        .location-details {
+            margin-bottom: var(--space-md);
+        }
+        
+        .location-details p {
+            margin-bottom: var(--space-xs);
+            display: flex;
+            align-items: center;
+            gap: var(--space-xs);
+        }
+        
+        .location-details i {
+            color: var(--accent-gold);
+            width: 20px;
+        }
+        
+        .map-placeholder {
+            aspect-ratio: 16/9;
+            background: linear-gradient(45deg, var(--primary-dark), var(--primary-medium));
+            border-radius: var(--border-radius-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: var(--font-size-md);
+        }
+        
+        /* ===== FOOTER ===== */
+        .footer {
+            background: var(--primary-dark);
+            color: var(--white);
+            padding: var(--space-xl) 0 var(--space-md);
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--space-lg);
+            margin-bottom: var(--space-lg);
+        }
+        
+        .footer-section h3 {
+            font-family: var(--font-heading);
+            margin-bottom: var(--space-sm);
+            color: var(--accent-gold);
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section ul li {
+            margin-bottom: var(--space-xs);
+        }
+        
+        .footer-section ul li a {
+            color: var(--white);
+            text-decoration: none;
+            transition: color var(--transition-fast);
+        }
+        
+        .footer-section ul li a:hover {
+            color: var(--accent-gold);
+        }
+        
+        .newsletter-form {
+            display: flex;
+            gap: var(--space-xs);
+            margin-top: var(--space-sm);
+        }
+        
+        .newsletter-form input {
+            flex: 1;
+            padding: var(--space-xs);
+            border: none;
+            border-radius: var(--border-radius);
+            font-family: var(--font-body);
+        }
+        
+        .newsletter-form button {
+            padding: var(--space-xs) var(--space-sm);
+            background: var(--accent-gold);
+            color: var(--white);
+            border: none;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            transition: background var(--transition-fast);
+        }
+        
+        .newsletter-form button:hover {
+            background: var(--accent-gold-light);
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            padding-top: var(--space-md);
+            text-align: center;
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        /* ===== BACK TO TOP ===== */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--gradient-gold);
+            border: none;
+            border-radius: 50%;
+            color: var(--white);
+            font-size: 1.2rem;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all var(--transition-normal);
+            z-index: 1000;
+        }
+        
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .back-to-top:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        /* ===== RESPONSIVE DESIGN ===== */
+        @media (max-width: 768px) {
+            :root {
+                --font-size-xl: 2.5rem;
+                --font-size-lg: 2rem;
+                --font-size-md: 1.25rem;
+            }
+            
+            .navbar-top {
+                display: none;
+            }
+            
+            .nav-menu {
+                display: none;
+            }
+            
+            .mobile-menu-toggle {
+                display: block;
+            }
+            
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .hero-actions {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .testimonials {
+                grid-template-columns: 1fr;
+            }
+            
+            .gallery-preview {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .location-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .newsletter-form {
+                flex-direction: column;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 var(--space-xs);
+            }
+            
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .gallery-preview {
+                grid-template-columns: 1fr;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* ===== ANIMATIONS ===== */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+        
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease-out;
+        }
+        
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="navbar-top">
+            <div class="container">
+                <div class="navbar-top-left">
+                    <span><i class="fas fa-clock"></i> Open Mon-Sat 9AM-7PM | Sun 10AM-6PM</span>
+                    <span><i class="fas fa-phone"></i> (555) 123-4567</span>
+                    <span><i class="fas fa-map-marker-alt"></i> 123 Beauty Ave, City, ST</span>
+                </div>
+                <div class="navbar-top-right">
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="navbar-main">
+            <div class="container">
+                <div class="navbar-content">
+                    <a href="#" class="logo">Finer Nails, Spa & Barber</a>
+                    <ul class="nav-menu">
+                        <li><a href="#home" class="nav-link active">Home</a></li>
+                        <li><a href="#services" class="nav-link">Services</a></li>
+                        <li><a href="#gallery" class="nav-link">Gallery</a></li>
+                        <li><a href="#about" class="nav-link">About</a></li>
+                        <li><a href="#blog" class="nav-link">Blog</a></li>
+                        <li><a href="#contact" class="nav-link">Contact</a></li>
+                    </ul>
+                    <div class="nav-actions">
+                        <a href="#book" class="btn btn-primary">BOOK NOW</a>
+                        <a href="#gift-cards" class="btn btn-outline">Gift Cards</a>
+                    </div>
+                    <button class="mobile-menu-toggle" id="mobileToggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content" data-aos="fade-up" data-aos-duration="1000">
+                <h1 class="hero-title">Transform Your Look, Elevate Your Confidence</h1>
+                <p class="hero-subtitle">Expert Nail Artistry • Luxurious Spa Treatments • Professional Barber Services</p>
+                <div class="hero-actions">
+                    <a href="#book" class="btn btn-primary">Book Your Transformation</a>
+                    <a href="#services" class="btn btn-secondary">Explore Services</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service Trio -->
+    <section class="services-trio">
+        <div class="container">
+            <div class="services-grid">
+                <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="service-icon">
+                        <i class="fas fa-hand-sparkles"></i>
+                    </div>
+                    <h3 class="service-title">Nail Artistry</h3>
+                    <p class="service-description">From classic manicures to intricate nail art designs, our skilled technicians create stunning looks that express your unique style.</p>
+                    <div class="service-actions">
+                        <a href="#" class="btn btn-outline">Book Manicure</a>
+                        <a href="#" class="btn btn-outline">Nail Art</a>
+                        <a href="#" class="btn btn-outline">View Gallery</a>
+                    </div>
+                </div>
+                
+                <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="service-icon">
+                        <i class="fas fa-spa"></i>
+                    </div>
+                    <h3 class="service-title">Luxury Spa</h3>
+                    <p class="service-description">Indulge in our premium spa treatments designed to rejuvenate your body and mind with therapeutic massages and skincare.</p>
+                    <div class="service-actions">
+                        <a href="#" class="btn btn-outline">Massage</a>
+                        <a href="#" class="btn btn-outline">Facials</a>
+                        <a href="#" class="btn btn-outline">Packages</a>
+                    </div>
+                </div>
+                
+                <div class="service-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="service-icon">
+                        <i class="fas fa-cut"></i>
+                    </div>
+                    <h3 class="service-title">Professional Barber</h3>
+                    <p class="service-description">Expert cuts, classic shaves, and modern styling by our master barbers who understand the art of masculine grooming.</p>
+                    <div class="service-actions">
+                        <a href="#" class="btn btn-outline">Hair Cut</a>
+                        <a href="#" class="btn btn-outline">Beard Trim</a>
+                        <a href="#" class="btn btn-outline">Hot Shave</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Proof -->
+    <section class="social-proof section" id="reviews">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Trusted by Thousands</h2>
+            
+            <div class="stats-grid" data-aos="fade-up" data-aos-delay="100">
+                <div class="stat-item">
+                    <span class="stat-number">10,000+</span>
+                    <span class="stat-label">Happy Clients</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">5⭐</span>
+                    <span class="stat-label">Average Rating</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">8+</span>
+                    <span class="stat-label">Years Experience</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">50+</span>
+                    <span class="stat-label">Services Offered</span>
+                </div>
+            </div>
+            
+            <div class="testimonials" data-aos="fade-up" data-aos-delay="200">
+                <div class="testimonial-card">
+                    <p class="testimonial-quote">Absolutely amazing experience! The nail art exceeded my expectations and the spa treatment was so relaxing. I'll definitely be back!</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">S</div>
+                        <div class="author-info">
+                            <h4>Sarah M.</h4>
+                            <div class="stars">⭐⭐⭐⭐⭐</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <p class="testimonial-quote">Best barber in town! Professional service, great atmosphere, and they really listen to what you want. Highly recommended!</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">M</div>
+                        <div class="author-info">
+                            <h4>Marcus J.</h4>
+                            <div class="stars">⭐⭐⭐⭐⭐</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <p class="testimonial-quote">The spa treatments here are incredible. I come here monthly for their signature facial and massage combo. Pure bliss!</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">L</div>
+                        <div class="author-info">
+                            <h4>Lisa K.</h4>
+                            <div class="stars">⭐⭐⭐⭐⭐</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Showcase -->
+    <section class="section" id="gallery">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Our Work Speaks</h2>
+            <div class="gallery-preview" data-aos="fade-up" data-aos-delay="100">
+                <div class="gallery-item">
+                    <i class="fas fa-paint-brush"></i>
+                </div>
+                <div class="gallery-item">
+                    <i class="fas fa-scissors"></i>
+                </div>
+                <div class="gallery-item">
+                    <i class="fas fa-gem"></i>
+                </div>
+                <div class="gallery-item">
+                    <i class="fas fa-leaf"></i>
+                </div>
+                <div class="gallery-item">
+                    <i class="fas fa-heart"></i>
+                </div>
+                <div class="gallery-item">
+                    <i class="fas fa-star"></i>
+                </div>
+            </div>
+            <div style="text-align: center;" data-aos="fade-up" data-aos-delay="200">
+                <a href="#" class="btn btn-primary">View Full Gallery</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Current Offers -->
+    <section class="offers section">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up" style="color: white;">Limited Time Offers</h2>
+            <div class="offers-grid" data-aos="fade-up" data-aos-delay="100">
+                <div class="offer-card">
+                    <h3 class="offer-title">New Client Special</h3>
+                    <div class="offer-price">20% OFF</div>
+                    <p>First visit discount on any service over $50</p>
+                    <a href="#" class="btn btn-secondary">Claim Offer</a>
+                </div>
+                
+                <div class="offer-card">
+                    <h3 class="offer-title">Spa Day Package</h3>
+                    <div class="offer-price">$199</div>
+                    <p>Massage + Facial + Manicure + Pedicure</p>
+                    <a href="#" class="btn btn-secondary">Book Package</a>
+                </div>
+                
+                <div class="offer-card">
+                    <h3 class="offer-title">Couples Retreat</h3>
+                    <div class="offer-price">$299</div>
+                    <p>Side-by-side spa treatments for two</p>
+                    <a href="#" class="btn btn-secondary">Book Together</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Location -->
+    <section class="location section" id="contact">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Visit Our Studio</h2>
+            <div class="location-content" data-aos="fade-up" data-aos-delay="100">
+                <div class="location-info">
+                    <h3>Find Us Here</h3>
+                    <div class="location-details">
+                        <p><i class="fas fa-map-marker-alt"></i> 123 Beauty Avenue, Downtown City, ST 12345</p>
+                        <p><i class="fas fa-phone"></i> (555) 123-4567</p>
+                        <p><i class="fas fa-envelope"></i> hello@finernails.com</p>
+                        <p><i class="fas fa-clock"></i> Mon-Sat: 9AM-7PM, Sun: 10AM-6PM</p>
+                    </div>
+                    <div style="margin-top: var(--space-md);">
+                        <a href="#" class="btn btn-primary">Get Directions</a>
+                        <a href="#" class="btn btn-outline">Call Now</a>
+                    </div>
+                </div>
+                <div class="map-placeholder">
+                    <i class="fas fa-map-marked-alt" style="font-size: 3rem; margin-bottom: var(--space-sm);"></i>
+                    <p>Interactive Map Coming Soon</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Finer Nails, Spa & Barber</h3>
+                    <p>Your premier destination for luxury nail artistry, rejuvenating spa treatments, and professional barber services. We're committed to helping you look and feel your absolute best.</p>
+                    <div class="social-links" style="margin-top: var(--space-sm);">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="#">Nail Art & Design</a></li>
+                        <li><a href="#">Manicure & Pedicure</a></li>
+                        <li><a href="#">Therapeutic Massage</a></li>
+                        <li><a href="#">Facial Treatments</a></li>
+                        <li><a href="#">Hair Cutting & Styling</a></li>
+                        <li><a href="#">Beard Grooming</a></li>
+                        <li><a href="#">Spa Packages</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Our Team</a></li>
+                        <li><a href="#">Gift Cards</a></li>
+                        <li><a href="#">Membership</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Stay Connected</h3>
+                    <p>Subscribe to our newsletter for exclusive offers, beauty tips, and the latest updates.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Enter your email" required>
+                        <button type="submit">Subscribe</button>
+                    </form>
+                    <div style="margin-top: var(--space-sm);">
+                        <p><strong>Call:</strong> (555) 123-4567</p>
+                        <p><strong>Hours:</strong> Mon-Sat 9AM-7PM</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Finer Nails, Spa & Barber. All rights reserved. | Privacy Policy | Terms of Service</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true,
+            offset: 100
+        });
+
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        const backToTop = document.getElementById('backToTop');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                navbar.classList.add('scrolled');
+                backToTop.classList.add('show');
+            } else {
+                navbar.classList.remove('scrolled');
+                backToTop.classList.remove('show');
+            }
+        });
+
+        // Back to top functionality
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Mobile menu toggle
+        const mobileToggle = document.getElementById('mobileToggle');
+        const navMenu = document.querySelector('.nav-menu');
+
+        mobileToggle.addEventListener('click', () => {
+            navMenu.style.display = navMenu.style.display === 'flex' ? 'none' : 'flex';
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Active navigation link
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Gallery item click effect
+        document.querySelectorAll('.gallery-item').forEach(item => {
+            item.addEventListener('click', () => {
+                item.style.animation = 'pulse 0.5s ease-in-out';
+                setTimeout(() => {
+                    item.style.animation = '';
+                }, 500);
+            });
+        });
+
+        // Newsletter form submission
+        document.querySelector('.newsletter-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = this.querySelector('input[type="email"]').value;
+            if (email) {
+                alert('Thank you for subscribing! We\'ll keep you updated with our latest offers and news.');
+                this.reset();
+            }
+        });
+
+        // Service card hover effects
+        document.querySelectorAll('.service-card').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-10px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // Testimonial card auto-rotation (optional)
+        let currentTestimonial = 0;
+        const testimonials = document.querySelectorAll('.testimonial-card');
+        
+        function rotateTestimonials() {
+            testimonials.forEach((testimonial, index) => {
+                testimonial.style.opacity = index === currentTestimonial ? '1' : '0.7';
+                testimonial.style.transform = index === currentTestimonial ? 'scale(1.05)' : 'scale(1)';
+            });
+            
+            currentTestimonial = (currentTestimonial + 1) % testimonials.length;
+        }
+
+        // Start testimonial rotation every 4 seconds
+        setInterval(rotateTestimonials, 4000);
+
+        // Initialize first testimonial highlight
+        rotateTestimonials();
+
+        // Intersection Observer for scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all animated elements
+        document.querySelectorAll('.animate-on-scroll').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Add loading animation
+        window.addEventListener('load', () => {
+            document.body.style.opacity = '0';
+            document.body.style.transition = 'opacity 0.5s ease-in-out';
+            setTimeout(() => {
+                document.body.style.opacity = '1';
+            }, 100);
+        });
+    </script>
+</body>
+</html>

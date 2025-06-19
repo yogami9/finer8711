@@ -1,0 +1,3189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finer Nails and Spa - Your Complete Beauty Destination</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-navy: #1a2332;
+            --secondary-navy: #243447;
+            --accent-gold: #c9a96e;
+            --accent-gold-light: #d4b87c;
+            --accent-gold-dark: #b8955f;
+            --white: #ffffff;
+            --off-white: #fafbfc;
+            --light-gray: #f8f9fa;
+            --medium-gray: #6c757d;
+            --dark-gray: #343a40;
+            --glass-bg: rgba(255, 255, 255, 0.08);
+            --glass-border: rgba(255, 255, 255, 0.12);
+            --shadow-light: 0 4px 16px rgba(26, 35, 50, 0.08);
+            --shadow-medium: 0 8px 32px rgba(26, 35, 50, 0.12);
+            --shadow-heavy: 0 16px 48px rgba(26, 35, 50, 0.16);
+            --gradient-primary: linear-gradient(135deg, var(--accent-gold), var(--accent-gold-dark));
+            --gradient-hero: linear-gradient(135deg, var(--primary-navy) 0%, var(--secondary-navy) 100%);
+            --gradient-rainbow: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4, #ffeaa7, #dda0dd);
+            --neon-glow: 0 0 20px rgba(201, 169, 110, 0.5), 0 0 40px rgba(201, 169, 110, 0.3), 0 0 60px rgba(201, 169, 110, 0.2);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            line-height: 1.7;
+            color: var(--dark-gray);
+            overflow-x: hidden;
+            font-weight: 400;
+            cursor: none;
+        }
+
+        /* Custom 3D Cursor */
+        .custom-cursor {
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--accent-gold);
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 10000;
+            transition: all 0.1s ease;
+            mix-blend-mode: difference;
+        }
+
+        .cursor-dot {
+            width: 4px;
+            height: 4px;
+            background: var(--accent-gold);
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 10001;
+            transition: all 0.1s ease;
+        }
+
+        .custom-cursor.hover {
+            transform: scale(2);
+            background: rgba(201, 169, 110, 0.2);
+            border-color: var(--accent-gold-light);
+        }
+
+        /* Advanced Loading Screen with 3D Effects */
+        .loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient-hero);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            transition: opacity 0.8s ease, visibility 0.8s ease;
+            perspective: 1000px;
+        }
+
+        .loading-screen.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .loading-logo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: logoFloat3D 3s ease-in-out infinite;
+            box-shadow: var(--shadow-heavy), var(--neon-glow);
+            transform-style: preserve-3d;
+            position: relative;
+        }
+
+        .loading-logo::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: linear-gradient(45deg, transparent, var(--accent-gold), transparent);
+            animation: rotateRing 2s linear infinite;
+            transform: translateZ(-10px);
+        }
+
+        .loading-logo img {
+            width: 90px;
+            height: 90px;
+            object-fit: contain;
+            transform: translateZ(20px);
+        }
+
+        @keyframes logoFloat3D {
+            0%, 100% { 
+                transform: translateY(0) rotateX(0deg) rotateY(0deg) scale(1); 
+            }
+            33% { 
+                transform: translateY(-15px) rotateX(10deg) rotateY(120deg) scale(1.1); 
+            }
+            66% { 
+                transform: translateY(-10px) rotateX(-5deg) rotateY(240deg) scale(1.05); 
+            }
+        }
+
+        @keyframes rotateRing {
+            0% { transform: translateZ(-10px) rotateZ(0deg); }
+            100% { transform: translateZ(-10px) rotateZ(360deg); }
+        }
+
+        /* Enhanced Typography with Text Effects */
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: textShimmer 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes textShimmer {
+            0% { filter: hue-rotate(0deg) brightness(1); }
+            100% { filter: hue-rotate(30deg) brightness(1.2); }
+        }
+
+        h1 { font-size: clamp(2.5rem, 4vw, 3.5rem); }
+        h2 { font-size: clamp(2rem, 3vw, 2.75rem); }
+        h3 { font-size: clamp(1.25rem, 2vw, 1.5rem); }
+
+        /* Interactive 3D Background with Parallax */
+        .animated-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: var(--gradient-hero);
+            overflow: hidden;
+            perspective: 1000px;
+        }
+
+        .floating-shapes {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            transform-style: preserve-3d;
+        }
+
+        .shape {
+            position: absolute;
+            opacity: 0.15;
+            animation: float3D 20s infinite linear;
+            transform-style: preserve-3d;
+            transition: all 0.3s ease;
+        }
+
+        .shape:hover {
+            opacity: 0.8;
+            transform: scale(1.5) rotateY(180deg);
+        }
+
+        .shape:nth-child(1) { left: 10%; animation-delay: 0s; }
+        .shape:nth-child(2) { left: 20%; animation-delay: 2s; }
+        .shape:nth-child(3) { left: 35%; animation-delay: 4s; }
+        .shape:nth-child(4) { left: 50%; animation-delay: 1s; }
+        .shape:nth-child(5) { left: 70%; animation-delay: 3s; }
+        .shape:nth-child(6) { left: 85%; animation-delay: 5s; }
+
+        @keyframes float3D {
+            0% {
+                transform: translateY(100vh) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale(0.5);
+                opacity: 0;
+            }
+            10% { opacity: 0.15; }
+            50% {
+                transform: translateY(50vh) rotateX(180deg) rotateY(180deg) rotateZ(180deg) scale(1);
+                opacity: 0.3;
+            }
+            90% { opacity: 0.15; }
+            100% {
+                transform: translateY(-100px) rotateX(360deg) rotateY(360deg) rotateZ(360deg) scale(0.8);
+                opacity: 0;
+            }
+        }
+
+        /* Morphing Header with Glassmorphism */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(26, 35, 50, 0.1);
+            backdrop-filter: blur(25px) saturate(200%);
+            border-bottom: 1px solid var(--glass-border);
+            z-index: 1000;
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            padding: 1rem 0;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-scrolled {
+            background: rgba(26, 35, 50, 0.95);
+            backdrop-filter: blur(30px) saturate(250%);
+            padding: 0.5rem 0;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-heavy);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            transform-style: preserve-3d;
+        }
+
+        .logo-container:hover {
+            transform: scale(1.1) rotateY(10deg);
+        }
+
+        .logo-image {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--shadow-light), var(--neon-glow);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .logo-image::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(from 0deg, transparent, var(--accent-gold), transparent);
+            animation: logoSpin 3s linear infinite;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .logo-container:hover .logo-image::before {
+            opacity: 0.3;
+        }
+
+        @keyframes logoSpin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .logo-image img {
+            width: 38px;
+            height: 38px;
+            object-fit: contain;
+            z-index: 1;
+            position: relative;
+        }
+
+        .logo-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: var(--accent-gold);
+            letter-spacing: -0.025em;
+            text-shadow: 0 0 10px rgba(201, 169, 110, 0.5);
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+            align-items: center;
+        }
+
+        .nav-menu a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            padding: 0.5rem 0;
+            overflow: hidden;
+        }
+
+        .nav-menu a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .nav-menu a:hover::before {
+            left: 100%;
+        }
+
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient-primary);
+            transition: width 0.4s ease;
+            box-shadow: 0 0 10px var(--accent-gold);
+        }
+
+        .nav-menu a:hover::after {
+            width: 100%;
+        }
+
+        .nav-menu a:hover {
+            color: var(--accent-gold);
+            text-shadow: 0 0 10px rgba(201, 169, 110, 0.8);
+            transform: translateY(-2px);
+        }
+
+        /* Morphing Book Button */
+        .book-btn {
+            background: var(--gradient-primary);
+            color: var(--white) !important;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            box-shadow: var(--shadow-light), var(--neon-glow);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            border: none;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            transform-style: preserve-3d;
+        }
+
+        .book-btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.3), transparent);
+            transition: all 0.5s ease;
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .book-btn:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .book-btn:hover {
+            transform: translateY(-5px) scale(1.05) rotateX(10deg);
+            box-shadow: var(--shadow-heavy), 0 0 30px rgba(201, 169, 110, 0.8);
+        }
+
+        .mobile-menu-toggle {
+            display: none;
+            color: var(--white);
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        /* Advanced Hero Section with Particle System */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(rgba(26, 35, 50, 0.7), rgba(26, 35, 50, 0.7)),
+                        url('https://images.unsplash.com/photo-1560066984-138dadb4c035?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2174&q=80') center/cover;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 70%, rgba(201, 169, 110, 0.1), transparent),
+                        radial-gradient(circle at 70% 30%, rgba(36, 52, 71, 0.3), transparent);
+            animation: backgroundPulse 6s ease-in-out infinite alternate;
+        }
+
+        @keyframes backgroundPulse {
+            0% { opacity: 0.3; }
+            100% { opacity: 0.7; }
+        }
+
+        .hero-content {
+            max-width: 900px;
+            padding: 0 2rem;
+            z-index: 2;
+            animation: heroEntrance3D 2s cubic-bezier(0.4, 0, 0.2, 1);
+            transform-style: preserve-3d;
+        }
+
+        @keyframes heroEntrance3D {
+            from {
+                opacity: 0;
+                transform: translateY(100px) translateZ(-100px) rotateX(20deg);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) translateZ(0) rotateX(0deg);
+            }
+        }
+
+        .hero h1 {
+            color: var(--white);
+            margin-bottom: 1.5rem;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.7), 0 0 40px rgba(201, 169, 110, 0.3);
+            animation: titleWave 4s ease-in-out infinite;
+        }
+
+        @keyframes titleWave {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.1rem, 2.5vw, 1.25rem);
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 2.5rem;
+            font-weight: 400;
+            line-height: 1.6;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+            animation: subtitleFloat 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes subtitleFloat {
+            0% { transform: translateY(0) translateX(0); }
+            100% { transform: translateY(-3px) translateX(2px); }
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        /* Morphing Buttons with Liquid Effects */
+        .btn-primary, .btn-secondary {
+            padding: 1.2rem 2.5rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            position: relative;
+            overflow: hidden;
+            transform-style: preserve-3d;
+        }
+
+        .btn-primary {
+            background: var(--gradient-primary);
+            color: var(--white);
+            box-shadow: var(--shadow-medium), var(--neon-glow);
+        }
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            transition: left 0.8s ease;
+        }
+
+        .btn-primary:hover::before {
+            left: 100%;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-6px) scale(1.05) rotateX(5deg);
+            box-shadow: var(--shadow-heavy), 0 0 40px rgba(201, 169, 110, 0.9);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--white);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(15px);
+            position: relative;
+        }
+
+        .btn-secondary::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(201, 169, 110, 0.2);
+            border-radius: 50%;
+            transition: all 0.5s ease;
+            transform: translate(-50%, -50%);
+        }
+
+        .btn-secondary:hover::after {
+            width: 300px;
+            height: 300px;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(201, 169, 110, 0.2);
+            border-color: var(--accent-gold);
+            transform: translateY(-5px) scale(1.03) rotateX(-5deg);
+            color: var(--accent-gold-light);
+            text-shadow: 0 0 10px rgba(201, 169, 110, 0.8);
+        }
+
+        /* 3D Interactive Services Section */
+        .services {
+            padding: 8rem 0;
+            background: linear-gradient(135deg, var(--white) 0%, var(--light-gray) 100%);
+            position: relative;
+            perspective: 1000px;
+        }
+
+        .services::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 80%, rgba(201, 169, 110, 0.05), transparent),
+                        radial-gradient(circle at 80% 20%, rgba(26, 35, 50, 0.03), transparent);
+            pointer-events: none;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 5rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            animation: titleReveal 1s ease-out;
+        }
+
+        @keyframes titleReveal {
+            from {
+                opacity: 0;
+                transform: translateY(30px) rotateX(20deg);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) rotateX(0);
+            }
+        }
+
+        .section-title h2 {
+            margin-bottom: 1rem;
+            position: relative;
+            transform-style: preserve-3d;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--gradient-primary);
+            border-radius: 2px;
+            box-shadow: 0 0 20px rgba(201, 169, 110, 0.5);
+            animation: underlineGlow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes underlineGlow {
+            0% { box-shadow: 0 0 20px rgba(201, 169, 110, 0.5); }
+            100% { box-shadow: 0 0 30px rgba(201, 169, 110, 0.8); }
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr));
+            gap: 3rem;
+            padding: 2rem 0;
+        }
+
+        /* Ultra-Advanced Service Cards */
+        .service-card {
+            background: var(--white);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow-light);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            border: 1px solid rgba(26, 35, 50, 0.08);
+            cursor: pointer;
+            transform-style: preserve-3d;
+            perspective: 1000px;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, transparent, rgba(201, 169, 110, 0.1), transparent);
+            opacity: 0;
+            transition: all 0.5s ease;
+            z-index: 1;
+            border-radius: 20px;
+        }
+
+        .service-card:hover::before {
+            opacity: 1;
+        }
+
+        .service-card:hover {
+            transform: translateY(-20px) rotateX(5deg) rotateY(5deg) scale(1.02);
+            box-shadow: var(--shadow-heavy), 0 0 50px rgba(201, 169, 110, 0.3);
+        }
+
+        .service-image {
+            width: 100%;
+            height: 220px;
+            position: relative;
+            overflow: hidden;
+            border-radius: 20px 20px 0 0;
+        }
+
+        .service-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 0.6s ease;
+            filter: brightness(0.9);
+        }
+
+        .service-card:hover .service-image img {
+            transform: scale(1.15) rotate(2deg);
+            filter: brightness(1.1) saturate(1.2);
+        }
+
+        .service-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(26, 35, 50, 0.8), rgba(201, 169, 110, 0.8));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: all 0.5s ease;
+            backdrop-filter: blur(5px);
+        }
+
+        .service-card:hover .service-overlay {
+            opacity: 1;
+        }
+
+        .service-overlay .service-icon {
+            font-size: 3.5rem;
+            color: var(--white);
+            animation: iconPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes iconPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .service-content {
+            padding: 2.5rem;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .service-content h3 {
+            color: var(--primary-navy);
+            margin-bottom: 1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover .service-content h3 {
+            transform: translateY(-2px);
+            text-shadow: 0 0 10px rgba(201, 169, 110, 0.3);
+        }
+
+        .service-content p {
+            margin-bottom: 2rem;
+            line-height: 1.6;
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover .service-content p {
+            transform: translateY(-1px);
+        }
+
+        /* Morphing Service Button */
+        .service-btn {
+            background: var(--primary-navy);
+            color: var(--white);
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            text-decoration: none;
+            display: inline-block;
+            font-weight: 500;
+            position: relative;
+            overflow: hidden;
+            transform-style: preserve-3d;
+        }
+
+        .service-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient-primary);
+            transition: left 0.5s ease;
+            z-index: -1;
+        }
+
+        .service-btn:hover::before {
+            left: 0;
+        }
+
+        .service-btn:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 10px 25px rgba(26, 35, 50, 0.3);
+        }
+
+        .service-btn span {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Interactive Features Grid */
+        .why-choose-us {
+            padding: 8rem 0;
+            background: linear-gradient(135deg, var(--light-gray), var(--off-white));
+            position: relative;
+            overflow: hidden;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+            gap: 3rem;
+            margin-top: 5rem;
+        }.feature-item {
+            text-align: center;
+            padding: 2.5rem;
+            background: var(--white);
+            border-radius: 20px;
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(26, 35, 50, 0.06);
+            transform-style: preserve-3d;
+            cursor: pointer;
+        }
+
+        .feature-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(201, 169, 110, 0.1), transparent);
+            transition: left 0.8s ease;
+        }
+
+        .feature-item:hover::before {
+            left: 100%;
+        }
+
+        .feature-item:hover {
+            transform: translateY(-15px) rotateX(5deg) scale(1.02);
+            box-shadow: var(--shadow-heavy), 0 0 40px rgba(201, 169, 110, 0.2);
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 2rem;
+            font-size: 2rem;
+            color: var(--white);
+            box-shadow: var(--shadow-light), var(--neon-glow);
+            transition: all 0.5s ease;
+            animation: iconFloat 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes iconFloat {
+            0% { transform: translateY(0) rotate(0deg); }
+            100% { transform: translateY(-5px) rotate(5deg); }
+        }
+
+        .feature-item:hover .feature-icon {
+            transform: scale(1.2) rotateY(360deg);
+            box-shadow: var(--shadow-heavy), 0 0 30px rgba(201, 169, 110, 0.8);
+        }
+
+        /* Advanced Gallery with Lightbox */
+        .gallery {
+            padding: 8rem 0;
+            background: var(--primary-navy);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .gallery::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 40% 60%, rgba(201, 169, 110, 0.1), transparent),
+                        radial-gradient(circle at 60% 40%, rgba(36, 52, 71, 0.3), transparent);
+            animation: backgroundShift 8s ease-in-out infinite alternate;
+        }
+
+        @keyframes backgroundShift {
+            0% { transform: translateX(0) rotate(0deg); }
+            100% { transform: translateX(20px) rotate(2deg); }
+        }
+
+        .gallery .section-title h2,
+        .gallery .section-title p {
+            color: var(--white);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
+            gap: 2rem;
+            margin-top: 5rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            transform-style: preserve-3d;
+            aspect-ratio: 1;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-10px) rotateX(5deg) rotateY(5deg) scale(1.05);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 50px rgba(201, 169, 110, 0.3);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 0.6s ease;
+            filter: brightness(0.8) contrast(1.1);
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.2) rotate(3deg);
+            filter: brightness(1.1) contrast(1.2) saturate(1.3);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(26, 35, 50, 0.8), rgba(201, 169, 110, 0.8));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: all 0.5s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .gallery-overlay i {
+            font-size: 3rem;
+            color: var(--white);
+            animation: overlayPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes overlayPulse {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.2); opacity: 0.8; }
+        }
+
+        /* Testimonials Carousel */
+        .testimonials {
+            padding: 8rem 0;
+            background: linear-gradient(135deg, var(--off-white), var(--light-gray));
+            position: relative;
+        }
+
+        .testimonials-carousel {
+            position: relative;
+            max-width: 1000px;
+            margin: 5rem auto 0;
+            overflow: hidden;
+            border-radius: 20px;
+            box-shadow: var(--shadow-medium);
+        }
+
+        .testimonial-slider {
+            display: flex;
+            transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .testimonial-item {
+            min-width: 100%;
+            padding: 4rem;
+            text-align: center;
+            background: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .testimonial-item::before {
+            content: '"';
+            position: absolute;
+            top: 1rem;
+            left: 2rem;
+            font-size: 8rem;
+            color: rgba(201, 169, 110, 0.1);
+            font-family: 'Playfair Display', serif;
+            line-height: 1;
+        }
+
+        .testimonial-content {
+            font-size: 1.25rem;
+            font-style: italic;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+            color: var(--dark-gray);
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .author-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: var(--gradient-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-weight: 600;
+            font-size: 1.25rem;
+            box-shadow: var(--shadow-light);
+        }
+
+        .author-info h4 {
+            color: var(--primary-navy);
+            margin-bottom: 0.25rem;
+        }
+
+        .author-info .rating {
+            color: var(--accent-gold);
+            font-size: 0.9rem;
+        }
+
+        .carousel-controls {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 3rem;
+        }
+
+        .carousel-btn {
+            width: 50px;
+            height: 50px;
+            border: none;
+            border-radius: 50%;
+            background: var(--gradient-primary);
+            color: var(--white);
+            cursor: pointer;
+            transition: all 0.4s ease;
+            box-shadow: var(--shadow-light);
+        }
+
+        .carousel-btn:hover {
+            transform: scale(1.1);
+            box-shadow: var(--shadow-medium), var(--neon-glow);
+        }
+
+        .carousel-indicators {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-top: 2rem;
+        }
+
+        .indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(201, 169, 110, 0.3);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .indicator.active {
+            background: var(--accent-gold);
+            transform: scale(1.2);
+            box-shadow: 0 0 10px rgba(201, 169, 110, 0.5);
+        }
+
+        /* Contact Section with Map */
+        .contact {
+            padding: 8rem 0;
+            background: var(--white);
+            position: relative;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: start;
+            margin-top: 5rem;
+        }
+
+        .contact-form {
+            background: linear-gradient(135deg, var(--light-gray), var(--off-white));
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: var(--shadow-light);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-form::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient-primary);
+            animation: formGlow 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes formGlow {
+            0% { box-shadow: 0 0 10px rgba(201, 169, 110, 0.3); }
+            100% { box-shadow: 0 0 20px rgba(201, 169, 110, 0.6); }
+        }
+
+        .form-group {
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1.25rem 1.5rem;
+            border: 2px solid transparent;
+            border-radius: 15px;
+            background: var(--white);
+            font-size: 1rem;
+            transition: all 0.4s ease;
+            box-shadow: var(--shadow-light);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent-gold);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-medium), 0 0 20px rgba(201, 169, 110, 0.3);
+        }
+
+        .form-group label {
+            position: absolute;
+            top: 1.25rem;
+            left: 1.5rem;
+            color: var(--medium-gray);
+            transition: all 0.3s ease;
+            pointer-events: none;
+            background: var(--white);
+            padding: 0 0.5rem;
+        }
+
+        .form-group input:focus + label,
+        .form-group textarea:focus + label,
+        .form-group input:not(:placeholder-shown) + label,
+        .form-group textarea:not(:placeholder-shown) + label {
+            top: -0.5rem;
+            font-size: 0.85rem;
+            color: var(--accent-gold);
+            transform: scale(0.9);
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 1.25rem;
+            background: var(--gradient-primary);
+            color: var(--white);
+            border: none;
+            border-radius: 15px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .submit-btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            transition: all 0.6s ease;
+            transform: translate(-50%, -50%);
+        }
+
+        .submit-btn:hover::before {
+            width: 400px;
+            height: 400px;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-heavy), var(--neon-glow);
+        }
+
+        .contact-info {
+            display: grid;
+            gap: 2rem;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            padding: 2rem;
+            background: var(--white);
+            border-radius: 15px;
+            box-shadow: var(--shadow-light);
+            transition: all 0.4s ease;
+            cursor: pointer;
+        }
+
+        .info-item:hover {
+            transform: translateX(10px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .info-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 1.5rem;
+            box-shadow: var(--shadow-light);
+        }
+
+        .info-content h3 {
+            color: var(--primary-navy);
+            margin-bottom: 0.5rem;
+        }
+
+        .info-content p {
+            color: var(--medium-gray);
+        }
+
+        /* Map Container */
+        .map-container {
+            grid-column: 1 / -1;
+            height: 400px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow-medium);
+            margin-top: 3rem;
+            position: relative;
+        }
+
+        .map-placeholder {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--light-gray), var(--medium-gray));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 1.25rem;
+            position: relative;
+        }
+
+        .map-placeholder::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="3" fill="%23c9a96e"/></svg>') center/20px;
+            opacity: 0.3;
+            animation: mapPattern 10s linear infinite;
+        }
+
+        @keyframes mapPattern {
+            0% { transform: translateX(0) translateY(0); }
+            100% { transform: translateX(20px) translateY(20px); }
+        }
+
+        /* Footer with Social Links */
+        footer {
+            background: var(--primary-navy);
+            color: var(--white);
+            padding: 5rem 0 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 70%, rgba(201, 169, 110, 0.1), transparent);
+            animation: footerGlow 6s ease-in-out infinite alternate;
+        }
+
+        @keyframes footerGlow {
+            0% { opacity: 0.3; }
+            100% { opacity: 0.7; }
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-section h3 {
+            color: var(--accent-gold);
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .footer-section h3::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background: var(--gradient-primary);
+            border-radius: 1px;
+        }
+
+        .footer-section p,
+        .footer-section li {
+            margin-bottom: 0.75rem;
+            line-height: 1.6;
+            opacity: 0.9;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section a {
+            color: var(--white);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .footer-section a:hover {
+            color: var(--accent-gold);
+            transform: translateX(5px);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-link {
+            width: 45px;
+            height: 45px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            text-decoration: none;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .social-link:hover {
+            background: var(--gradient-primary);
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: 0 10px 25px rgba(201, 169, 110, 0.4);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 2rem;
+            text-align: center;
+            opacity: 0.8;
+        }
+
+        /* Scroll to Top Button */
+        .scroll-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 55px;
+            height: 55px;
+            background: var(--gradient-primary);
+            border: none;
+            border-radius: 50%;
+            color: var(--white);
+            font-size: 1.25rem;
+            cursor: pointer;
+            box-shadow: var(--shadow-medium);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            opacity: 0;
+            visibility: hidden;
+            z-index: 1000;
+        }
+
+        .scroll-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .scroll-top:hover {
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: var(--shadow-heavy), var(--neon-glow);
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .nav-menu {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 80%;
+                height: 100vh;
+                background: rgba(26, 35, 50, 0.95);
+                backdrop-filter: blur(20px);
+                flex-direction: column;
+                justify-content: center;
+                gap: 3rem;
+                transition: right 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            }
+
+            .nav-menu.active {
+                right: 0;
+            }
+
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+                gap: 1.5rem;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .services-grid,
+            .features-grid,
+            .gallery-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .social-links {
+                justify-content: center;
+            }
+        }
+
+        /* Advanced Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        /* Particle System */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: var(--accent-gold);
+            border-radius: 50%;
+            opacity: 0.3;
+            animation: particleFloat 15s infinite linear;
+        }
+
+        @keyframes particleFloat {
+            0% {
+                transform: translateY(100vh) translateX(0) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.3;
+            }
+            90% {
+                opacity: 0.1;
+            }
+            100% {
+                transform: translateY(-100px) translateX(100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* Performance Optimizations */
+        .service-card,
+        .feature-item,
+        .gallery-item {
+            contain: layout style paint;
+        }
+
+        /* Accessibility */
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        /* Print Styles */
+        @media print {
+            .animated-bg,
+            .floating-shapes,
+            .particles,
+            .scroll-top {
+                display: none !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loading-logo">
+            <img src="https://images.unsplash.com/photo-1576086213369-97a306d36557?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=80&q=80" alt="Finer Nails Logo">
+        </div>
+    </div>
+
+    <!-- Custom Cursor -->
+    <div class="custom-cursor"></div>
+    <div class="cursor-dot"></div>
+
+    <!-- Animated Background -->
+    <div class="animated-bg">
+        <div class="floating-shapes">
+            <div class="shape">💅</div>
+            <div class="shape">✂️</div>
+            <div class="shape">💆</div>
+            <div class="shape">🌿</div>
+            <div class="shape">✨</div>
+            <div class="shape">💍</div>
+        </div>
+    </div>
+
+    <!-- Particle System -->
+    <div class="particles" id="particles"></div>
+
+    <!-- Header -->
+    <header id="header">
+        <div class="nav-container">
+            <a href="#" class="logo-container">
+                <div class="logo-image">
+                    <img src="https://images.unsplash.com/photo-1576086213369-97a306d36557?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=80&q=80" alt="Finer Nails Logo">
+                </div>
+                <span class="logo-text">Finer Nails & Spa</span>
+            </a>
+            
+            <nav class="nav-menu" id="navMenu">
+                <a href="#home">Home</a>
+                <a href="#services">Services</a>
+                <a href="#gallery">Gallery</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+                <a href="#book" class="book-btn">Book Now</a>
+            </nav>
+
+            <div class="mobile-menu-toggle" id="mobileToggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Transform Your Beauty Experience</h1>
+            <p class="hero-subtitle">Discover luxury services in nails, barbering, hair styling, and spa treatments. Where beauty meets excellence and relaxation finds its perfect home.</p>
+            <div class="hero-buttons">
+                <a href="#services" class="btn-primary">
+                    <i class="fas fa-sparkles"></i>
+                    Explore Services
+                </a>
+                <a href="#contact" class="btn-secondary">
+                    <i class="fas fa-calendar"></i>
+                    Book Appointment
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Premium Services</h2>
+                <p>Experience the finest in beauty and wellness with our comprehensive range of professional services</p>
+            </div>
+
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="https://images.unsplash.com/photo-1604654894610-df63bc536371?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Nail Services">
+                        <div class="service-overlay">
+                            <i class="fas fa-hand-sparkles service-icon"></i>
+                        </div>
+                    </div>
+                    <div class="service-content">
+                        <h3>Premium Nail Services</h3>
+                        <p>From classic manicures to intricate nail art, our skilled technicians create stunning designs that reflect your unique style and personality.</p>
+                        <a href="#" class="service-btn">
+                            <span>Learn More</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="https://images.unsplash.com/photo-1621605815971-fbc98d665033?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Barber Services">
+                        <div class="service-overlay">
+                            <i class="fas fa-cut service-icon"></i>
+                        </div>
+                    </div>
+                    <div class="service-content">
+                        <h3>Expert Barbering</h3>
+                        <p>Professional hair cutting, styling, and traditional shaving services for the modern gentleman. Experience precision and style with every visit.</p>
+                        <a href="#" class="service-btn">
+                            <span>Learn More</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Hair Salon">
+                        <div class="service-overlay">
+                            <i class="fas fa-magic service-icon"></i>
+                        </div>
+                    </div>
+                    <div class="service-content">
+                        <h3>Hair Styling & Braiding</h3>
+                        <p>Transform your look with our expert hair styling, coloring, and intricate braiding services designed to enhance your natural beauty.</p>
+                        <a href="#" class="service-btn">
+                            <span>Learn More</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Spa Treatments">
+                        <div class="service-overlay">
+                            <i class="fas fa-spa service-icon"></i>
+                        </div>
+                    </div>
+                    <div class="service-content">
+                        <h3>Luxury Spa Treatments</h3>
+                        <p>Indulge in our rejuvenating spa treatments including facials, massages, and body treatments designed to refresh and revitalize your mind and body.</p>
+                        <a href="#" class="service-btn">
+                            <span>Learn More</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Eyebrow Services">
+                        <div class="service-overlay">
+                            <i class="fas fa-eye service-icon"></i>
+                        </div>
+                    </div>
+                    <div class="service-content">
+                        <h3>Eyebrow & Lash Services</h3>
+                        <p>Perfect your look with our professional eyebrow shaping, threading, and eyelash extension services for beautifully defined features.</p>
+                        <a href="#" class="service-btn">
+                            <span>Learn More</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Waxing Services">
+                        <div class="service-overlay">
+                            <i class="fas fa-leaf service-icon"></i>
+                        </div>
+                    </div>
+                    <div class="service-content">
+                        <h3>Waxing & Body Care</h3>
+                        <p>Smooth, silky skin with our professional waxing services and body care treatments using premium, gentle products for all skin types.</p>
+                        <a href="#" class="service-btn">
+                            <span>Learn More</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>Why Choose Finer Nails & Spa?</h2>
+                <p>Experience the difference with our commitment to excellence, hygiene, and customer satisfaction</p>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <h3>Expert Professionals</h3>
+                    <p>Our team consists of licensed and certified beauty professionals with years of experience in their respective fields.</p>
+                </div>
+
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Hygiene Standards</h3>
+                    <p>We maintain the highest standards of cleanliness and sterilization, ensuring a safe and healthy environment for all our clients.</p>
+                </div>
+
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-gem"></i>
+                    </div>
+                    <h3>Premium Products</h3>
+                    <p>We use only the finest quality products from renowned brands to ensure exceptional results and client satisfaction.</p>
+                </div>
+
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>Flexible Scheduling</h3>
+                    <p>Book appointments at your convenience with our flexible scheduling system and extended operating hours.</p>
+                </div>
+
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3>Personalized Service</h3>
+                    <p>Every client receives personalized attention and customized treatments tailored to their unique needs and preferences.</p>
+                </div>
+
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-dollar-sign"></i>
+                    </div>
+                    <h3>Competitive Pricing</h3>
+                    <p>Enjoy luxury services at competitive prices with regular promotions and loyalty programs for our valued clients.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery" id="gallery">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Work Gallery</h2>
+                <p>Explore our portfolio showcasing the artistry and excellence of our beauty professionals</p>
+            </div>
+
+            <div class="gallery-grid">
+                <div class="gallery-item" onclick="openLightbox('https://images.unsplash.com/photo-1604654894610-df63bc536371?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')">
+                    <img src="https://images.unsplash.com/photo-1604654894610-df63bc536371?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Nail Art 1">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+
+                <div class="gallery-item" onclick="openLightbox('https://images.unsplash.com/photo-1560066984-138dadb4c035?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')">
+                    <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Hair Styling 1">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+
+                <div class="gallery-item" onclick="openLightbox('https://images.unsplash.com/photo-1621605815971-fbc98d665033?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')">
+                    <img src="https://images.unsplash.com/photo-1621605815971-fbc98d665033?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Barber Services 1">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+
+                <div class="gallery-item" onclick="openLightbox('https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')">
+                    <img src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Eyebrow Services 1">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+
+                <div class="gallery-item" onclick="openLightbox('https://images.unsplash.com/photo-1544161515-4ab6ce6db874?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')">
+                    <img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Spa Treatment 1">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+
+                <div class="gallery-item" onclick="openLightbox('https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')">
+                    <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Body Care 1">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lightbox Modal -->
+    <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+        <div class="lightbox-content">
+            <span class="lightbox-close">&times;</span>
+            <img id="lightbox-image" src="" alt="Gallery Image">
+        </div>
+    </div>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>What Our Clients Say</h2>
+                <p>Read testimonials from our satisfied customers who have experienced our exceptional services</p>
+            </div>
+
+            <div class="testimonials-carousel">
+                <div class="testimonial-slider" id="testimonialSlider">
+                    <div class="testimonial-item">
+                        <div class="testimonial-content">
+                            "The nail art here is absolutely stunning! The attention to detail and creativity is unmatched. I always leave feeling pampered and beautiful."
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">SA</div>
+                            <div class="author-info">
+                                <h4>Sarah Anderson</h4>
+                                <div class="rating">★★★★★</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-item">
+                        <div class="testimonial-content">
+                            "Best barber shop in town! Professional service, great atmosphere, and they really know how to give you the perfect cut. Highly recommended!"
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">MJ</div>
+                            <div class="author-info">
+                                <h4>Michael Johnson</h4>
+                                <div class="rating">★★★★★</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-item">
+                        <div class="testimonial-content">
+                            "The braiding service is exceptional! They're so skilled and patient, creating beautiful styles that last. The spa treatments are also incredibly relaxing."
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">AM</div>
+                            <div class="author-info">
+                                <h4>Aisha Mohammed</h4>
+                                <div class="rating">★★★★★</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="carousel-controls">
+                    <button class="carousel-btn" onclick="prevTestimonial()">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="carousel-btn" onclick="nextTestimonial()">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+
+                <div class="carousel-indicators">
+                    <div class="indicator active" onclick="currentTestimonial(0)"></div>
+                    <div class="indicator" onclick="currentTestimonial(1)"></div>
+                    <div class="indicator" onclick="currentTestimonial(2)"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Get In Touch</h2>
+                <p>Ready to transform your beauty experience? Contact us to book your appointment or learn more about our services</p>
+            </div>
+
+            <div class="contact-grid">
+                <div class="contact-form">
+                    <form id="contactForm" onsubmit="submitForm(event)">
+                        <div class="form-group">
+                            <input type="text" id="name" name="name" placeholder=" " required>
+                            <label for="name">Full Name</label>
+                        </div>
+
+                        <div class="form-group">
+                            <input type="email" id="email" name="email" placeholder=" " required>
+                            <label for="email">Email Address</label>
+                        </div>
+
+                        <div class="form-group">
+                            <input type="tel" id="phone" name="phone" placeholder=" " required>
+                            <label for="phone">Phone Number</label>
+                        </div>
+
+                        <div class="form-group">
+                            <select id="service" name="service" required>
+                                <option value="">Select Service</option>
+                                <option value="nails">Nail Services</option>
+                                <option value="barber">Barber Services</option>
+                                <option value="hair">Hair Styling & Braiding</option>
+                                <option value="spa">Spa Treatments</option>
+                                <option value="eyebrow">Eyebrow & Lash Services</option>
+                                <option value="waxing">Waxing & Body Care</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <textarea id="message" name="message" rows="5" placeholder=" " required></textarea>
+                            <label for="message">Message</label>
+                        </div>
+
+                        <button type="submit" class="submit-btn">
+                            <span>Send Message</span>
+                        </button>
+                    </form>
+                </div>
+
+                <div class="contact-info">
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="info-content">
+                            <h3>Location</h3>
+                            <p>123 Beauty Street, Kisii Town<br>Kisii County, Kenya</p>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="info-content">
+                            <h3>Phone</h3>
+                            <p>+254 700 123 456<br>+254 720 987 654</p>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="info-content">
+                            <h3>Email</h3>
+                            <p>info@finernailsspa.com<br>booking@finernailsspa.com</p>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="info-content">
+                            <h3>Hours</h3>
+                            <p>Mon - Sat: 8:00 AM - 8:00 PM<br>Sunday: 10:00 AM - 6:00 PM</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="map-container">
+                    <div class="map-placeholder">
+                        <i class="fas fa-map-marked-alt"></i>
+                        <p>Interactive Map Location</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Finer Nails & Spa</h3>
+                    <p>Your premier destination for luxury beauty and wellness services. We combine expertise, quality, and personalized care to deliver exceptional results.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Our Services</h3>
+                    <ul>
+                        <li><a href="#">Nail Art & Manicures</a></li>
+                        <li><a href="#">Barber & Shaving</a></li>
+                        <li><a href="#">Hair Styling & Braiding</a></li>
+                        <li><a href="#">Spa Treatments</a></li>
+                        <li><a href="#">Eyebrow & Lash Services</a></li>
+                        <li><a href="#">Waxing & Body Care</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#gallery">Gallery</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="#">Book Online</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> 123 Beauty Street, Kisii Town</p>
+                    <p><i class="fas fa-phone"></i> +254 700 123 456</p>
+                    <p><i class="fas fa-envelope"></i> info@finernailsspa.com</p>
+                    <p><i class="fas fa-clock"></i> Mon-Sat: 8AM-8PM</p>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2024 Finer Nails & Spa. All rights reserved. | Privacy Policy | Terms of Service</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-top" id="scrollTop" onclick="scrollToTop()">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- Success Modal -->
+    <div class="modal-overlay" id="successModal">
+        <div class="modal-content">
+            <div class="modal-icon">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <h3>Message Sent Successfully!</h3>
+            <p>Thank you for contacting us. We'll get back to you within 24 hours.</p>
+            <button onclick="closeModal()" class="modal-btn">Close</button>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // Loading Screen
+        window.addEventListener('load', function() {
+            const loadingScreen = document.getElementById('loadingScreen');
+            loadingScreen.style.opacity = '0';
+            setTimeout(() => {
+                loadingScreen.style.display = 'none';
+            }, 500);
+        });
+
+        // Custom Cursor
+        const cursor = document.querySelector('.custom-cursor');
+        const cursorDot = document.querySelector('.cursor-dot');
+
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+            cursorDot.style.left = e.clientX + 'px';
+            cursorDot.style.top = e.clientY + 'px';
+        });
+
+        // Particle System
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            
+            for (let i = 0; i < 50; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 15 + 's';
+                particle.style.animationDuration = (15 + Math.random() * 10) + 's';
+                particlesContainer.appendChild(particle);
+            }
+        }
+
+        createParticles();
+
+        // Header Scroll Effect
+        const header = document.getElementById('header');
+        const scrollTop = document.getElementById('scrollTop');
+
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 100) {
+                header.classList.add('header-scrolled');
+                scrollTop.classList.add('visible');
+            } else {
+                header.classList.remove('header-scrolled');
+                scrollTop.classList.remove('visible');
+            }
+        });
+
+        // Mobile Menu
+        const mobileToggle = document.getElementById('mobileToggle');
+        const navMenu = document.getElementById('navMenu');
+
+        mobileToggle.addEventListener('click', function() {
+            navMenu.classList.toggle('active');
+            const icon = mobileToggle.querySelector('i');
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-times');
+        });
+
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    navMenu.classList.remove('active');
+                    mobileToggle.querySelector('i').classList.add('fa-bars');
+                    mobileToggle.querySelector('i').classList.remove('fa-times');
+                }
+            });
+        });
+
+        // Scroll Animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in-up');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.service-card, .feature-item, .gallery-item').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Gallery Lightbox
+        function openLightbox(imageSrc) {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImage = document.getElementById('lightbox-image');
+            lightboxImage.src = imageSrc;
+            lightbox.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            const lightbox = document.getElementById('lightbox');
+            lightbox.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Testimonials Carousel
+        let currentTestimonialIndex = 0;
+        const testimonials = document.querySelectorAll('.testimonial-item');
+        const totalTestimonials = testimonials.length;
+
+        function showTestimonial(index) {
+            const slider = document.getElementById('testimonialSlider');
+            slider.style.transform = `translateX(-${index * 100}%)`;
+            
+            document.querySelectorAll('.indicator').forEach((indicator, i) => {
+                indicator.classList.toggle('active', i === index);
+            });
+        }
+
+        function nextTestimonial() {
+            currentTestimonialIndex = (currentTestimonialIndex + 1) % totalTestimonials;
+            showTestimonial(currentTestimonialIndex);
+        }
+
+        function prevTestimonial() {
+            currentTestimonialIndex = (currentTestimonialIndex - 1 + totalTestimonials) % totalTestimonials;
+            showTestimonial(currentTestimonialIndex);
+        }
+
+        function currentTestimonial(index) {
+            currentTestimonialIndex = index;
+            showTestimonial(currentTestimonialIndex);
+        }
+
+        // Auto-rotate testimonials
+        setInterval(nextTestimonial, 5000);
+
+        // Form Handling
+        function submitForm(event) {
+            event.preventDefault();
+            
+            // Simulate form submission
+            const submitBtn = event.target.querySelector('.submit-btn');
+            const originalText = submitBtn.innerHTML;
+            
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+            submitBtn.disabled = true;
+            
+            setTimeout(() => {
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+                event.target.reset();
+                showSuccessModal();
+            }, 2000);
+        }
+
+        function showSuccessModal() {
+            document.getElementById('successModal').style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('successModal').style.display = 'none';
+        }
+
+        // Scroll to Top
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        // Interactive Hover Effects
+        document.querySelectorAll('.service-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-12px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // Dynamic Background Color Changes
+        function changeBackgroundColor() {
+            const colors = [
+                'radial-gradient(circle at 40% 60%, rgba(201, 169, 110, 0.1), transparent)',
+                'radial-gradient(circle at 60% 40%, rgba(36, 52, 71, 0.3), transparent)',
+                'radial-gradient(circle at 20% 80%, rgba(201, 169, 110, 0.15), transparent)'
+            ];
+            
+            let currentColorIndex = 0;
+            
+            setInterval(() => {
+                currentColorIndex = (currentColorIndex + 1) % colors.length;
+                document.documentElement.style.setProperty('--dynamic-gradient', colors[currentColorIndex]);
+            }, 3000);
+        }
+
+        changeBackgroundColor();
+
+        // Keyboard Navigation
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeLightbox();
+                closeModal();
+                navMenu.classList.remove('active');
+            }
+        });
+
+        // Performance Optimization
+        let ticking = false;
+
+        function updateScrollElements() {
+            // Update scroll-dependent elements
+            ticking = false;
+        }
+
+        window.addEventListener('scroll', function() {
+            if (!ticking) {
+                requestAnimationFrame(updateScrollElements);
+                ticking = true;
+            }
+        });
+    </script>
+
+    <style>
+        /* Additional Styles for Enhanced Interactivity */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 10000;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(10px);
+        }
+
+        .lightbox-content {
+            position: relative;
+            max-width: 90%;
+            max-height: 90%;
+            animation: lightboxZoom 0.3s ease;
+        }
+
+        .lightbox-content img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: var(--shadow-heavy);
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .lightbox-close:hover {
+            transform: scale(1.2);
+            color: var(--accent-gold);
+        }
+
+        @keyframes lightboxZoom {
+            from { transform: scale(0.8); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 10000;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(5px);
+        }
+
+        .modal-content {
+            background: var(--white);
+            padding: 3rem;
+            border-radius: 20px;
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+            box-shadow: var(--shadow-heavy);
+            animation: modalSlideIn 0.3s ease;}
+
+        .modal-icon {
+            font-size: 4rem;
+            color: var(--accent-gold);
+            margin-bottom: 1rem;
+        }
+
+        .modal-content h3 {
+            color: var(--dark-blue);
+            margin-bottom: 1rem;
+        }
+
+        .modal-btn {
+            background: var(--accent-gold);
+            color: var(--white);
+            border: none;
+            padding: 12px 30px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+            margin-top: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .modal-btn:hover {
+            background: var(--dark-blue);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        @keyframes modalSlideIn {
+            from { transform: translateY(-50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        /* Floating Action Buttons */
+        .floating-actions {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .floating-btn {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-medium);
+            animation: floatBounce 2s ease-in-out infinite;
+        }
+
+        .floating-btn.whatsapp {
+            background: #25D366;
+            color: white;
+        }
+
+        .floating-btn.phone {
+            background: var(--accent-gold);
+            color: white;
+        }
+
+        .floating-btn.book {
+            background: var(--dark-blue);
+            color: white;
+            font-size: 1rem;
+            width: 80px;
+            height: 80px;
+            font-weight: bold;
+        }
+
+        .floating-btn:hover {
+            transform: scale(1.1) translateY(-5px);
+            box-shadow: var(--shadow-heavy);
+        }
+
+        @keyframes floatBounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* Enhanced Service Cards with 3D Effects */
+        .service-card {
+            perspective: 1000px;
+            transform-style: preserve-3d;
+        }
+
+        .service-card:hover .service-image {
+            transform: rotateY(10deg) rotateX(5deg);
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, transparent, rgba(201, 169, 110, 0.1), transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            border-radius: 20px;
+        }
+
+        .service-card:hover::before {
+            opacity: 1;
+        }
+
+        /* Animated Progress Bars for Features */
+        .feature-progress {
+            width: 100%;
+            height: 4px;
+            background: rgba(201, 169, 110, 0.2);
+            border-radius: 2px;
+            margin-top: 10px;
+            overflow: hidden;
+        }
+
+        .feature-progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, var(--accent-gold), #ffd700);
+            border-radius: 2px;
+            transform: translateX(-100%);
+            transition: transform 1s ease-in-out;
+        }
+
+        .feature-item.in-view .feature-progress-bar {
+            transform: translateX(0);
+        }
+
+        /* Interactive Gallery with Tilt Effects */
+        .gallery-item {
+            transform-style: preserve-3d;
+            transition: all 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: perspective(1000px) rotateX(10deg) rotateY(10deg) scale(1.05);
+        }
+
+        /* Testimonial Enhancement with Typing Effect */
+        .testimonial-content {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .testimonial-content::after {
+            content: '|';
+            position: absolute;
+            right: 10px;
+            animation: blink 1s infinite;
+            color: var(--accent-gold);
+        }
+
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+
+        /* Enhanced Contact Form with Ripple Effects */
+        .form-group {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .form-ripple {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(201, 169, 110, 0.3);
+            transform: scale(0);
+            animation: rippleEffect 0.6s linear;
+            pointer-events: none;
+        }
+
+        @keyframes rippleEffect {
+            to {
+                transform: scale(4);
+                opacity: 0;
+            }
+        }
+
+        /* Loading States for Interactive Elements */
+        .loading-spinner {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top-color: #fff;
+            animation: spin 1s ease-in-out infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Interactive Price Display */
+        .price-display {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: var(--shadow-heavy);
+            z-index: 9999;
+            display: none;
+            max-width: 400px;
+            width: 90%;
+        }
+
+        .price-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .price-item {
+            padding: 1rem;
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            border-radius: 10px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .price-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .price-amount {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--accent-gold);
+        }
+
+        /* Enhanced Animations */
+        @keyframes slideInFromLeft {
+            from {
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideInFromRight {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes pulseGlow {
+            0%, 100% {
+                box-shadow: 0 0 20px rgba(201, 169, 110, 0.3);
+            }
+            50% {
+                box-shadow: 0 0 40px rgba(201, 169, 110, 0.6);
+            }
+        }
+
+        /* Responsive Enhancements */
+        @media (max-width: 768px) {
+            .floating-actions {
+                bottom: 20px;
+                right: 20px;
+            }
+            
+            .floating-btn {
+                width: 50px;
+                height: 50px;
+                font-size: 1.2rem;
+            }
+            
+            .floating-btn.book {
+                width: 60px;
+                height: 60px;
+                font-size: 0.8rem;
+            }
+            
+            .price-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Dark Mode Toggle */
+        .theme-toggle {
+            position: fixed;
+            top: 100px;
+            right: 30px;
+            background: var(--dark-blue);
+            color: white;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            z-index: 999;
+        }
+
+        .theme-toggle:hover {
+            transform: rotate(180deg);
+            background: var(--accent-gold);
+        }
+
+        /* Dark Mode Styles */
+        body.dark-mode {
+            --white: #1a1a1a;
+            --light-gray: #2d2d2d;
+            --dark-blue: #f0f0f0;
+            background: #121212;
+            color: #e0e0e0;
+        }
+
+        body.dark-mode header {
+            background: rgba(26, 26, 26, 0.95);
+        }
+
+        body.dark-mode .service-card,
+        body.dark-mode .feature-item {
+            background: #2d2d2d;
+            border: 1px solid #404040;
+        }
+    </style>
+
+    <!-- Floating Action Buttons -->
+    <div class="floating-actions">
+        <button class="floating-btn whatsapp" onclick="openWhatsApp()" title="Chat on WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+        </button>
+        <button class="floating-btn phone" onclick="makeCall()" title="Call Us">
+            <i class="fas fa-phone"></i>
+        </button>
+        <button class="floating-btn book" onclick="showPricing()" title="View Pricing">
+            BOOK
+        </button>
+    </div>
+
+    <!-- Theme Toggle -->
+    <button class="theme-toggle" onclick="toggleTheme()" title="Toggle Dark Mode">
+        <i class="fas fa-moon"></i>
+    </button>
+
+    <!-- Price Display Modal -->
+    <div class="price-display" id="priceDisplay">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+            <h3 style="margin: 0; color: var(--dark-blue);">Our Pricing</h3>
+            <button onclick="closePricing()" style="background: none; border: none; font-size: 1.5rem; cursor: pointer; color: var(--dark-blue);">×</button>
+        </div>
+        <div class="price-grid">
+            <div class="price-item">
+                <h4>Manicure</h4>
+                <div class="price-amount">KSh 800</div>
+                <p>Classic nail care</p>
+            </div>
+            <div class="price-item">
+                <h4>Pedicure</h4>
+                <div class="price-amount">KSh 1,200</div>
+                <p>Complete foot care</p>
+            </div>
+            <div class="price-item">
+                <h4>Hair Cut</h4>
+                <div class="price-amount">KSh 500</div>
+                <p>Professional styling</p>
+            </div>
+            <div class="price-item">
+                <h4>Hair Braiding</h4>
+                <div class="price-amount">KSh 2,000</div>
+                <p>Custom styles</p>
+            </div>
+            <div class="price-item">
+                <h4>Spa Treatment</h4>
+                <div class="price-amount">KSh 3,500</div>
+                <p>Full relaxation</p>
+            </div>
+            <div class="price-item">
+                <h4>Eyebrow Shaping</h4>
+                <div class="price-amount">KSh 600</div>
+                <p>Perfect definition</p>
+            </div>
+        </div>
+        <button onclick="bookAppointment()" style="width: 100%; margin-top: 1rem; padding: 12px; background: var(--accent-gold); color: white; border: none; border-radius: 10px; cursor: pointer; font-weight: bold;">
+            Book Appointment
+        </button>
+    </div>
+
+    <!-- Enhanced JavaScript -->
+    <script>
+        // Enhanced Interactive Features
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeEnhancements();
+            addProgressBars();
+            initTiltEffects();
+            createRippleEffects();
+        });
+
+        function initializeEnhancements() {
+            // Add 3D tilt effect to service cards
+            document.querySelectorAll('.service-card').forEach(card => {
+                card.addEventListener('mousemove', handleTilt);
+                card.addEventListener('mouseleave', resetTilt);
+            });
+
+            // Enhanced scroll animations
+            const enhancedObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('in-view');
+                        animateProgressBars(entry.target);
+                    }
+                });
+            }, { threshold: 0.3 });
+
+            document.querySelectorAll('.feature-item, .service-card').forEach(el => {
+                enhancedObserver.observe(el);
+            });
+        }
+
+        function handleTilt(e) {
+            const card = e.currentTarget;
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+            
+            const rotateX = (y - centerY) / 10;
+            const rotateY = (centerX - x) / 10;
+            
+            card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(20px)`;
+        }
+
+        function resetTilt(e) {
+            e.currentTarget.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateZ(0)';
+        }
+
+        function addProgressBars() {
+            document.querySelectorAll('.feature-item').forEach(item => {
+                const progressBar = document.createElement('div');
+                progressBar.className = 'feature-progress';
+                progressBar.innerHTML = '<div class="feature-progress-bar"></div>';
+                item.appendChild(progressBar);
+            });
+        }
+
+        function animateProgressBars(element) {
+            const progressBar = element.querySelector('.feature-progress-bar');
+            if (progressBar) {
+                setTimeout(() => {
+                    progressBar.style.transform = 'translateX(0)';
+                }, Math.random() * 500);
+            }
+        }
+
+        function createRippleEffects() {
+            document.querySelectorAll('input, textarea, button').forEach(element => {
+                element.addEventListener('click', function(e) {
+                    const ripple = document.createElement('span');
+                    const rect = this.getBoundingClientRect();
+                    const size = Math.max(rect.width, rect.height);
+                    const x = e.clientX - rect.left - size / 2;
+                    const y = e.clientY - rect.top - size / 2;
+                    
+                    ripple.style.width = ripple.style.height = size + 'px';
+                    ripple.style.left = x + 'px';
+                    ripple.style.top = y + 'px';
+                    ripple.classList.add('form-ripple');
+                    
+                    this.appendChild(ripple);
+                    
+                    setTimeout(() => {
+                        ripple.remove();
+                    }, 600);
+                });
+            });
+        }
+
+        function initTiltEffects() {
+            VanillaTilt.init(document.querySelectorAll('.gallery-item'), {
+                max: 25,
+                speed: 400,
+                glare: true,
+                'max-glare': 0.5
+            });
+        }
+
+        // Floating Action Button Functions
+        function openWhatsApp() {
+            const message = encodeURIComponent("Hello! I'd like to book an appointment at Finer Nails & Spa.");
+            window.open(`https://wa.me/254700123456?text=${message}`, '_blank');
+        }
+
+        function makeCall() {
+            window.location.href = 'tel:+254700123456';
+        }
+
+        function showPricing() {
+            document.getElementById('priceDisplay').style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closePricing() {
+            document.getElementById('priceDisplay').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        function bookAppointment() {
+            closePricing();
+            document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Theme Toggle
+        function toggleTheme() {
+            document.body.classList.toggle('dark-mode');
+            const themeIcon = document.querySelector('.theme-toggle i');
+            
+            if (document.body.classList.contains('dark-mode')) {
+                themeIcon.classList.replace('fa-moon', 'fa-sun');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                themeIcon.classList.replace('fa-sun', 'fa-moon');
+                localStorage.setItem('theme', 'light');
+            }
+        }
+
+        // Load saved theme
+        window.addEventListener('load', function() {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.theme-toggle i').classList.replace('fa-moon', 'fa-sun');
+            }
+        });
+
+        // Enhanced Form Validation with Real-time Feedback
+        function validateForm() {
+            const form = document.getElementById('contactForm');
+            const inputs = form.querySelectorAll('input, textarea, select');
+            
+            inputs.forEach(input => {
+                input.addEventListener('blur', function() {
+                    validateField(this);
+                });
+                
+                input.addEventListener('input', function() {
+                    clearFieldError(this);
+                });
+            });
+        }
+
+        function validateField(field) {
+            const value = field.value.trim();
+            let isValid = true;
+            let errorMessage = '';
+            
+            if (field.hasAttribute('required') && !value) {
+                isValid = false;
+                errorMessage = 'This field is required';
+            } else if (field.type === 'email' && value && !isValidEmail(value)) {
+                isValid = false;
+                errorMessage = 'Please enter a valid email address';
+            } else if (field.type === 'tel' && value && !isValidPhone(value)) {
+                isValid = false;
+                errorMessage = 'Please enter a valid phone number';
+            }
+            
+            if (!isValid) {
+                showFieldError(field, errorMessage);
+            } else {
+                clearFieldError(field);
+            }
+            
+            return isValid;
+        }
+
+        function showFieldError(field, message) {
+            field.classList.add('error');
+            let errorDiv = field.parentNode.querySelector('.error-message');
+            
+            if (!errorDiv) {
+                errorDiv = document.createElement('div');
+                errorDiv.className = 'error-message';
+                errorDiv.style.color = '#e74c3c';
+                errorDiv.style.fontSize = '0.8rem';
+                errorDiv.style.marginTop = '5px';
+                field.parentNode.appendChild(errorDiv);
+            }
+            
+            errorDiv.textContent = message;
+        }
+
+        function clearFieldError(field) {
+            field.classList.remove('error');
+            const errorDiv = field.parentNode.querySelector('.error-message');
+            if (errorDiv) {
+                errorDiv.remove();
+            }
+        }
+
+        function isValidEmail(email) {
+            return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+        }
+
+        function isValidPhone(phone) {
+            return /^[\+]?[\d\s\-\(\)]{10,}$/.test(phone);
+        }
+
+        // Initialize form validation
+        validateForm();
+
+        // Smooth reveal animations for sections
+        function initSectionAnimations() {
+            const sections = document.querySelectorAll('section');
+            
+            sections.forEach((section, index) => {
+                section.style.opacity = '0';
+                section.style.transform = 'translateY(50px)';
+                section.style.transition = 'all 0.8s ease';
+                
+                setTimeout(() => {
+                    if (isElementInViewport(section)) {
+                        revealSection(section);
+                    }
+                }, index * 200);
+            });
+        }
+
+        function revealSection(section) {
+            section.style.opacity = '1';
+            section.style.transform = 'translateY(0)';
+        }
+
+        function isElementInViewport(el) {
+            const rect = el.getBoundingClientRect();
+            return (
+                rect.top >= 0 &&
+                rect.left >= 0 &&
+                rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+                rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+            );
+        }
+
+        // Parallax scrolling effect
+        window.addEventListener('scroll', function() {
+            const scrolled = window.pageYOffset;
+            const parallaxElements = document.querySelectorAll('.hero-content, .particles');
+            
+            parallaxElements.forEach(element => {
+                const speed = element.dataset.speed || 0.5;
+                element.style.transform = `translateY(${scrolled * speed}px)`;
+            });
+        });
+
+        // Initialize section animations
+        initSectionAnimations();
+
+        // Add loading states to buttons
+        document.querySelectorAll('button, .service-btn').forEach(button => {
+            button.addEventListener('click', function(e) {
+                if (!this.classList.contains('loading')) {
+                    this.classList.add('loading');
+                    const originalText = this.innerHTML;
+                    this.innerHTML = '<span class="loading-spinner"></span> Loading...';
+                    
+                    setTimeout(() => {
+                        this.classList.remove('loading');
+                        this.innerHTML = originalText;
+                    }, 1500);
+                }
+            });
+        });
+
+        // Enhanced keyboard navigation
+        document.addEventListener('keydown', function(e) {
+            switch(e.key) {
+                case 'Escape':
+                    closeLightbox();
+                    closeModal();
+                    closePricing();
+                    navMenu.classList.remove('active');
+                    break;
+                case 'ArrowLeft':
+                    if (document.getElementById('lightbox').style.display === 'flex') {
+                        // Navigate to previous image in gallery
+                        e.preventDefault();
+                    }
+                    break;
+                case 'ArrowRight':
+                    if (document.getElementById('lightbox').style.display === 'flex') {
+                        // Navigate to next image in gallery
+                        e.preventDefault();
+                    }
+                    break;
+            }
+        });
+
+        // Performance monitoring
+        function logPerformanceMetrics() {
+            if ('performance' in window) {
+                window.addEventListener('load', function() {
+                    setTimeout(function() {
+                        const perfData = performance.getEntriesByType('navigation')[0];
+                        console.log('Page Load Time:', perfData.loadEventEnd - perfData.loadEventStart, 'ms');
+                    }, 0);
+                });
+            }
+        }
+
+        logPerformanceMetrics();
+    </script>
+
+    <!-- Vanilla Tilt Library for 3D Effects -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js"></script>
+</body>
+</html>
